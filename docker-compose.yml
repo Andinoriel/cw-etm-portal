@@ -81,9 +81,9 @@ services:
     container_name: phpmyadmin
     environment:
       PMA_HOST: mysql-host
-      PMA_PORT: 3309
+      PMA_PORT: 3306
     ports:
-      - 3309:80
+      - "3309:80"
     depends_on:
       - mysql-host
     networks:
