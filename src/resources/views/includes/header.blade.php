@@ -37,12 +37,17 @@
                 </button>
                 <div class="col-12 col-md-8 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav w-100 d-md-flex flex-md-row justify-content-md-end">
-                        <li class="nav-item mr-md-3">
+                        <li class="nav-item mx-md-1">
                             <a class="nav-link {{request()->is('/') ? 'active' : ''}}" href="/">
                                 Main Page {{-- <span class="sr-only">(current)</span> --}}
                             </a>
                         </li>
-                        <li class="nav-item dropdown mr-md-3">
+                        <li class="nav-item mx-md-1">
+                            <a class="nav-link {{request()->is('faculties') ? 'active disabled' : ''}}" href="/faculties">
+                                Faculties
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown mx-md-1">
                             <a class="nav-link dropdown-toggle" href="#" id="enrollee" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Element
@@ -53,11 +58,6 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Action 3</a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{request()->is('faculties') ? 'active' : ''}}" href="/faculties">
-                                Faculties
-                            </a>
                         </li>
                     </ul>
                 </div>

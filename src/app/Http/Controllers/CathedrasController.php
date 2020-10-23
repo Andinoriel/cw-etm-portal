@@ -8,7 +8,7 @@ use App\Models\Cathedra;
 
 class CathedrasController extends Controller
 {
-    public function show(Faculty $faculty, Cathedra $cathedra) {
+    public function show(Faculty $_, Cathedra $cathedra) {
         return view('stuff', [
             'cathedra' => $cathedra
         ]);

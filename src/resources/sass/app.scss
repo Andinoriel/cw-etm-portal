@@ -120,8 +120,13 @@ div.wrapper-container {
     }
 }
 
-.navbar-nav .dropdown-item:hover {
-    background-color: darken($color: #fff, $amount: 10%);
+.navbar-nav {
+    & li a {
+        text-transform: uppercase;
+    }
+    & .dropdown-item:hover {
+        background-color: darken($color: #fff, $amount: 10%);
+    }
 }
 
 /*#endregion Header*/
@@ -131,6 +136,7 @@ div.wrapper-container {
     &-container {
         background-color: black;
     }
+
     &-main-text {
         text-transform: uppercase;
         font-family: "Roboto", sans-serif;
@@ -138,6 +144,7 @@ div.wrapper-container {
         font-weight: 600;
         color: #ecedef;
     }
+
     &-text {
         font-family: "Roboto", sans-serif;
         font-size: 14px;
@@ -153,11 +160,13 @@ div.wrapper-container {
         padding-left: 15px;
         border: none
     }
+
     &-icon {
         background-color: #d80056;
         border: none;
         padding: 0 27px;
     }
+
     & input::-webkit-input-placeholder {
         color: #000000;
         font-family: "Roboto", sans-serif;
@@ -185,10 +194,12 @@ div.wrapper-container {
 
 .double-color-line {
     margin-bottom: 10px;
+
     & div:first-child {
         border: 1px solid #ff8c01;
         width: 30px;
     }
+
     & div:last-child {
         border: 1px solid #0d0b0b;
         width: 30px;
@@ -203,6 +214,7 @@ div.wrapper-container {
     & p:first-child span {
         color: #ff8c01;
     }
+
     & p:last-child span {
         color: #ff8c01;
     }
@@ -394,6 +406,7 @@ div.wrapper-container {
         font-weight: 300;
         color: #0d0d0d;
     }
+
     &-image {
         object-position: center;
         width: 100%;

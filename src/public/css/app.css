@@ -116,6 +116,10 @@ div.wrapper-container {
   color: #b46200;
 }
 
+.navbar-nav li a {
+  text-transform: uppercase;
+}
+
 .navbar-nav .dropdown-item:hover {
   background-color: #e6e6e6;
 }

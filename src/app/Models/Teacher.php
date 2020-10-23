@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Teacher extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     public function cathedra() {
         return $this->belongsTo('App\Models\Cathedra');
