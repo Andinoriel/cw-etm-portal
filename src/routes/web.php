@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FacultiesController;
+use App\Http\Controllers\CathedrasController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('faculties', [FacultiesController::class, 'index']);
+Route::get('faculties/faculty-{faculty}', [FacultiesController::class, 'show']);
+Route::get('stuff-{stuff}', [CathedrasController::class, 'show']);
