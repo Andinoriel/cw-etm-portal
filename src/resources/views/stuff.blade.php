@@ -17,7 +17,7 @@
     <div class="row mt-5">
         @foreach($cathedra->teachers as $teacher)
         <div class="teacher col-lg-4 col-md-6 col-12 mt-3 d-flex flex-column align-items-center">
-            <img class="content-image" src={{ $teacher->image_url }}>
+            <img class="content-image" src={{ $teacher->thumbnail }}>
             <a class="mt-3" href="#">
                 <h3>{{ $teacher->last_name }} {{ $teacher->first_name }}  {{ $teacher->mid_name }} </h3>
             </a>

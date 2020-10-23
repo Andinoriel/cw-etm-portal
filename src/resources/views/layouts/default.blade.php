@@ -15,7 +15,7 @@
 
 <body>
     <div class="wrapper-container d-flex flex-column min-vh-100">
-        @include('includes.header')
+        @include('includes.header')        
 
         <main class="my-auto">
             @yield('content')

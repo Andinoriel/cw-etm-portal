@@ -16,7 +16,7 @@ class CreateCathedrasTable extends Migration
         Schema::create('cathedras', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image_url');
+            $table->string('thumbnail');
             $table->foreignId('faculty_id')->constrained()->onDelete('cascade');
         });
     }

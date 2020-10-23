@@ -18,4 +18,4 @@ use App\Http\Controllers\CathedrasController;
 
 Route::get('faculties', [FacultiesController::class, 'index']);
 Route::get('faculties/faculty-{faculty}', [FacultiesController::class, 'show']);
-Route::get('stuff-{stuff}', [CathedrasController::class, 'show']);
+Route::get('faculties/faculty-{faculty}/cathedra-{cathedra}', [CathedrasController::class, 'show']);

@@ -5,24 +5,22 @@
                 <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center text-white">
                     TMD of Pryazovskyi State Technical University
                 </div>
-                <!-- /.NULL -->
                 <div
-                    class="d-flex flex-column flex-lg-row justify-content-around align-items-start align-items-lg-center contacts-top-header">
+                    class="d-flex flex-column flex-lg-row justify-content-around align-items-start align-items-lg-center top-header-contacts">
                     <div class="d-none d-lg-flex mt-md-0 ml-3">
                         <img src="{{ asset ('images/placeholder.svg') }}" heigth="20px" width="20px" alt="position">
-                        <span class="pl-2">Mariupol</span>
+                        <span class="pl-2"><a href="https://goo.gl/maps/pAsua69ryAs6pWeB7">Mariupol</a></span>
                     </div>
                     <div class="d-none d-lg-flex mt-2 mt-md-0 ml-3">
                         <img src="{{ asset('images/email.svg') }}" heigth="20px" width="20px" alt="mail">
-                        <span class="pl-2">mail@gmail.com</span>
+                        <span class="pl-2"><a href="mailto:mail@gmail.com">mail@gmail.com</a></span>
                     </div>
                     <div class="d-flex ml-lg-3">
                         <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
                             alt="registration">
-                        <a class="btn-reg ml-2" href="#">Sign Up / Sign In</a>
+                        <a class="btn-reg ml-2" href="#">Sign In / Sign Up</a>
                     </div>
                 </div>
-                <!-- /.contacts-top-header -->
             </div>
         </div>
     </div>
@@ -40,7 +38,9 @@
                 <div class="col-12 col-md-8 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav w-100 d-md-flex flex-md-row justify-content-md-end">
                         <li class="nav-item mr-md-3">
-                            <a class="nav-link" href="#">Main Page <span class="sr-only">(current)</span></a>
+                            <a class="nav-link {{request()->is('/') ? 'active' : ''}}" href="/">
+                                Main Page {{-- <span class="sr-only">(current)</span> --}}
+                            </a>
                         </li>
                         <li class="nav-item dropdown mr-md-3">
                             <a class="nav-link dropdown-toggle" href="#" id="enrollee" role="button"
@@ -54,8 +54,10 @@
                                 <a class="dropdown-item" href="#">Action 3</a>
                             </div>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Element</a>
+                        <li class="nav-item">
+                            <a class="nav-link {{request()->is('faculties') ? 'active' : ''}}" href="/faculties">
+                                Faculties
+                            </a>
                         </li>
                     </ul>
                 </div>

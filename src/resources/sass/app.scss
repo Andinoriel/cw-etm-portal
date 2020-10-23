@@ -99,78 +99,75 @@ div.wrapper-container {
 
 /*#region Header*/
 
-a:hover {
-    text-decoration: none;
-}
-
 .top-header {
     background-color: #0d0b0b;
-}
 
-.contacts-top-header {
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #ecedef;
-}
+    &-contacts {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #ecedef;
 
-.btn-reg {
-    display: inline-block;
-    color: #ff8c01;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    transition: .2s;
+        & a {
+            color: #ff8c01;
+            text-decoration: none;
 
-    &:hover {
-        transition: .2s;
-        color: #ffa232;
+            &:hover {
+                transition: .2s;
+                color: darken($color: #ff8c01, $amount: 15%);
+            }
+        }
     }
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: darken($color: #fff, $amount: 10%);
 }
 
 /*#endregion Header*/
 
 /*#region Footer*/
-.footer-container {
-    background-color: black;
+.footer {
+    &-container {
+        background-color: black;
+    }
+    &-main-text {
+        text-transform: uppercase;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ecedef;
+    }
+    &-text {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ababab;
+    }
 }
 
-.foot-main-text {
-    text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #ecedef;
+.search {
+    &-field {
+        background-color: #ecedef;
+        font-size: 16px;
+        padding-left: 15px;
+        border: none
+    }
+    &-icon {
+        background-color: #d80056;
+        border: none;
+        padding: 0 27px;
+    }
+    & input::-webkit-input-placeholder {
+        color: #000000;
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+    }
 }
 
-.foot-text {
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: #ababab;
-}
-
-.search-field {
-    background-color: #ecedef;
-    font-size: 16px;
-    padding-left: 15px;
-    border: none;
-}
-
-.search-icon {
-    background-color: #d80056;
-    border: none;
-    padding: 0 27px;
-}
 
 .h46 {
     height: 46px;
-}
-
-.search input::-webkit-input-placeholder {
-    color: #000000;
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
 }
 
 /*#endregion Footer*/
@@ -186,30 +183,29 @@ a:hover {
     text-align: center;
 }
 
-div.double-color-line {
+.double-color-line {
     margin-bottom: 10px;
-}
-
-div.double-color-line div:first-child {
-    border: 1px solid #ff8c01;
-    width: 30px;
-}
-
-div.double-color-line div:last-child {
-    border: 1px solid #0d0b0b;
-    width: 30px;
+    & div:first-child {
+        border: 1px solid #ff8c01;
+        width: 30px;
+    }
+    & div:last-child {
+        border: 1px solid #0d0b0b;
+        width: 30px;
+    }
 }
 
 .second-text {
     color: #0d0b0b;
 }
 
-.roboto14md p:first-child span {
-    color: #ff8c01;
-}
-
-.roboto14md p:last-child span {
-    color: #ff8c01;
+.roboto14md {
+    & p:first-child span {
+        color: #ff8c01;
+    }
+    & p:last-child span {
+        color: #ff8c01;
+    }
 }
 
 .link {
@@ -221,8 +217,6 @@ div.double-color-line div:last-child {
 }
 
 .post {
-
-    // ... 
     &-inner {
         & img {
             max-width: 100%;
@@ -318,7 +312,6 @@ div.double-color-line div:last-child {
         margin-top: 15px;
     }
 }
-
 
 .content {
     position: relative;

@@ -4,26 +4,26 @@
             <div class="row">
                 <div class="col d-flex justify-content-center">
                     <div class="nav flex-column align-items-start">
-                        <p class="foot-main-text">Column 1</p>
-                        <p class="foot-text">Data 1</p>
-                        <p class="foot-text">Data 2</p>
-                        <p class="foot-text">Data 3</p>
+                        <p class="footer-main-text">Column 1</p>
+                        <p class="footer-text">Data 1</p>
+                        <p class="footer-text">Data 2</p>
+                        <p class="footer-text">Data 3</p>
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">
                     <div class="nav flex-column align-items-start">
-                        <p class="foot-main-text">Column 2</p>
-                        <p class="foot-text">Data 1</p>
-                        <p class="foot-text">Data 2</p>
-                        <p class="foot-text">Data 3</p>
+                        <p class="footer-main-text">Column 2</p>
+                        <p class="footer-text">Data 1</p>
+                        <p class="footer-text">Data 2</p>
+                        <p class="footer-text">Data 3</p>
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">
                     <div class="nav flex-column align-items-start">
-                        <p class="foot-main-text">Column 3</p>
-                        <p class="foot-text">Data 1</p>
-                        <p class="foot-text">Data 2</p>
-                        <p class="foot-text">Data 3</p>
+                        <p class="footer-main-text">Column 3</p>
+                        <p class="footer-text">Data 1</p>
+                        <p class="footer-text">Data 2</p>
+                        <p class="footer-text">Data 3</p>
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">

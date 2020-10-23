@@ -10,7 +10,7 @@ class FacultiesController extends Controller
     public function index()
     {       
         return view('faculties', [
-            'faculties' => Faculty::all()
+            'faculties' => Faculty::get()
         ]);
     }
 

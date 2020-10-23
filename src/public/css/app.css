@@ -95,33 +95,29 @@ div.wrapper-container {
 
 /*#region Header*/
 
-a:hover {
-  text-decoration: none;
-}
-
 .top-header {
   background-color: #0d0b0b;
 }
 
-.contacts-top-header {
+.top-header-contacts {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #ecedef;
 }
 
-.btn-reg {
-  display: inline-block;
+.top-header-contacts a {
   color: #ff8c01;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  transition: 0.2s;
+  text-decoration: none;
 }
 
-.btn-reg:hover {
+.top-header-contacts a:hover {
   transition: 0.2s;
-  color: #ffa232;
+  color: #b46200;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: #e6e6e6;
 }
 
 /*#endregion Header*/
@@ -132,7 +128,7 @@ a:hover {
   background-color: black;
 }
 
-.foot-main-text {
+.footer-main-text {
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -140,7 +136,7 @@ a:hover {
   color: #ecedef;
 }
 
-.foot-text {
+.footer-text {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -160,14 +156,14 @@ a:hover {
   padding: 0 27px;
 }
 
-.h46 {
-  height: 46px;
-}
-
 .search input::-webkit-input-placeholder {
   color: #000000;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
+}
+
+.h46 {
+  height: 46px;
 }
 
 /*#endregion Footer*/
@@ -183,16 +179,16 @@ a:hover {
   text-align: center;
 }
 
-div.double-color-line {
+.double-color-line {
   margin-bottom: 10px;
 }
 
-div.double-color-line div:first-child {
+.double-color-line div:first-child {
   border: 1px solid #ff8c01;
   width: 30px;
 }
 
-div.double-color-line div:last-child {
+.double-color-line div:last-child {
   border: 1px solid #0d0b0b;
   width: 30px;
 }

@@ -19,7 +19,8 @@ class CreateTeachersTable extends Migration
             $table->string('last_name');
             $table->string('mid_name');
             $table->string('degree');
-            $table->string('image_url');
+            $table->string('about');
+            $table->string('thumbnail');
             $table->foreignId('cathedra_id')->constrained()->onDelete('cascade');
         });
     }
