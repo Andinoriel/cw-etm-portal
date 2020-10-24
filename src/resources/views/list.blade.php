@@ -1,6 +1,13 @@
 @extends('layouts.default')
 
-@section('title') List @endsection
+@section('title')
+    @if(Request::is('list/by-teacher-*'))
+    {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
+    — Files
+    @else
+    All Files
+    @endif
+@endsection
 @section('description') NULL @endsection
 
 @section('content')
@@ -11,7 +18,7 @@
             {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
             — Files
             @else
-            Files
+            All Files
             @endif
         </h1>
         <div class="d-flex flex-row justify-content-center double-color-line">
@@ -36,10 +43,12 @@
                         </span>
                         <span class="ml-md-3 ml-0">
                             Author:
-                            <span class="color_cont">
-                                {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }}
-                                {{ $book->Teacher->mid_name }}
-                            </span>
+                            <a href="/faculties/faculty-{{ $book->Teacher->Cathedra->Faculty->id }}/cathedra-{{ $book->Teacher->Cathedra->id }}/teacher-{{ $book->Teacher->id }}">
+                                <span class="color_cont">
+                                    {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }}
+                                    {{ $book->Teacher->mid_name }}
+                                </span>
+                            </a>
                         </span>
                     </div>
                     <p class="roboto16 mt-3 text-justify">{{ $book->short_description }}</p>

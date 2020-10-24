@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') Faculties @endsection
+@section('title') TMD - Faculties @endsection
 @section('description') NULL @endsection
 
 @section('content')

@@ -11,13 +11,13 @@ class ListController extends Controller
     public function index()
     {       
         return view('list', [
-            'books' => Book::with('Teacher')->paginate(6),
+            'books' => Book::paginate(6),
         ]);
     }
 
     public function show(Teacher $teacher) {
         return view('list', [
-            'books' => $teacher->books()->with('Teacher')->paginate(6)
+            'books' => $teacher->books()->paginate(6)
         ]);
     }
 }

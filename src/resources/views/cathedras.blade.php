@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') {{ $faculty->name }} - Cathedras @endsection
+@section('title') TMD - {{ $faculty->name }} - Cathedras @endsection
 @section('description') NULL @endsection
 
 @section('content')

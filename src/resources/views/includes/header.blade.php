@@ -43,6 +43,11 @@
                             </a>
                         </li>
                         <li class="nav-item mx-md-1">
+                            <a class="nav-link {{request()->is('list') ? 'active disabled' : ''}}" href="/list">
+                                All Files
+                            </a>
+                        </li>
+                        <li class="nav-item mx-md-1">
                             <a class="nav-link {{request()->is('faculties') ? 'active disabled' : ''}}" href="/faculties">
                                 Faculties
                             </a>

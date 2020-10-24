@@ -116,7 +116,7 @@ div.wrapper-container {
 }
 
 .top-header-contacts a:hover {
-  transition: 0.2s;
+  transition: all 0.2s;
   color: #b46200;
 }
 
@@ -785,6 +785,15 @@ div.wrapper-container {
   margin-top: 0 !important;
 }
 
+.post-inner a {
+  text-decoration: none;
+}
+
+.post-inner a:hover h2 {
+  transition: all 0.2s;
+  color: #2885a5;
+}
+
 .post-inner img {
   max-width: 100%;
 }
@@ -837,6 +846,10 @@ div.wrapper-container {
 
 .search-form button:focus {
   outline: none;
+}
+
+.search-form button:hover {
+  background: black !important;
 }
 
 .search-form span {
@@ -953,6 +966,22 @@ div.wrapper-container {
   background-color: #d87701;
   color: inherit;
   transition: all 0.3s;
+}
+
+.stuff-person-study-info {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #0d0d0d;
+}
+
+.stuff-person-study-info a {
+  color: #d87701;
+  text-decoration: none;
+}
+
+.stuff-person-study-info a:hover {
+  transition: all 0.3s;
+  color: #8c4d01;
 }
 
 .stuff-person-degree {

@@ -117,7 +117,7 @@ div.wrapper-container {
             text-decoration: none;
 
             &:hover {
-                transition: .2s;
+                transition: all .2s;
                 color: darken($color: #ff8c01, $amount: 15%);
             }
         }
@@ -732,6 +732,15 @@ $color-wood-2: #410A09;
 
 .post {
     &-inner {
+        & a {
+            text-decoration: none;
+
+            &:hover h2 {
+                transition: all .2s;
+                color: darken($color: #5cb8d7, $amount: 20%)
+            }
+        }
+
         & img {
             max-width: 100%;
         }
@@ -751,18 +760,22 @@ $color-wood-2: #410A09;
 }
 
 .pagination {
-    & span, a {
+
+    & span,
+    a {
         border: none;
         box-shadow: none !important;
         color: black;
     }
-    & .page-item + .active span{
-        background-color: #ff8c01 !important;        
+
+    & .page-item+.active span {
+        background-color: #ff8c01 !important;
     }
+
     & .page-item:hover:not(.disabled):not(.active) .page-link {
-        background-color: lighten($color: #ff8c01, $amount: 20%) !important; 
-        color: white; 
-        
+        background-color: lighten($color: #ff8c01, $amount: 20%) !important;
+        color: white;
+
     }
 }
 
@@ -784,6 +797,10 @@ $color-wood-2: #410A09;
 
         &:focus {
             outline: none;
+        }
+
+        &:hover {
+            background: black !important;
         }
     }
 
@@ -902,13 +919,29 @@ $color-wood-2: #410A09;
         &-go {
             background-color: #ff8c01;
             color: inherit;
-            transition: all 0.3s;
+            transition: all .3s;
 
             &:hover {
                 text-decoration: none;
                 background-color: #d87701;
                 color: inherit;
-                transition: all 0.3s;
+                transition: all .3s;
+            }
+        }
+
+        &-study-info {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            color: #0d0d0d;
+
+            & a {
+                color: #d87701;
+                text-decoration: none;
+
+                &:hover {
+                    transition: all .3s;
+                    color: darken($color: #d87701, $amount: 15%);
+                }
             }
         }
 
@@ -950,4 +983,3 @@ $color-wood-2: #410A09;
 
 
 /*#endregion Pages*/
-
