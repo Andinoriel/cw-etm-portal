@@ -6,7 +6,14 @@
 @section('content')
 <div class="container">
     <div class="text-center my-5">
-        <h1 class="title">All files</h1>
+        <h1 class="title">
+            @if(Request::is('list/by-teacher-*'))
+            {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
+            — Files
+            @else
+            Files
+            @endif
+        </h1>
         <div class="d-flex flex-row justify-content-center double-color-line">
             <div></div>
             <div></div>
@@ -30,7 +37,8 @@
                         <span class="ml-md-3 ml-0">
                             Author:
                             <span class="color_cont">
-                                {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }} {{ $book->Teacher->mid_name }}
+                                {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }}
+                                {{ $book->Teacher->mid_name }}
                             </span>
                         </span>
                     </div>

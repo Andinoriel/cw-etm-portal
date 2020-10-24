@@ -19,8 +19,8 @@
   font-size: 24px;
 }
 
-.roboto22md {
-  font-size: 22px !important;
+.roboto20md {
+  font-size: 20px !important;
   font-family: "Roboto Medium", sans-serif !important;
 }
 
@@ -801,24 +801,20 @@ div.wrapper-container {
   font-size: 14px;
 }
 
-.pagination {
-  display: inline-block;
-}
-
+.pagination span,
 .pagination a {
+  border: none;
+  box-shadow: none !important;
   color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
 }
 
-.pagination a.active {
-  background-color: #5cb8d7;
+.pagination .page-item + .active span {
+  background-color: #ff8c01 !important;
+}
+
+.pagination .page-item:hover:not(.disabled):not(.active) .page-link {
+  background-color: #ffba67 !important;
   color: white;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
 }
 
 .search-form {
