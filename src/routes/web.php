@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacultiesController;
 use App\Http\Controllers\CathedrasController;
 use App\Http\Controllers\TeachersController;
+use App\Http\Controllers\ListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::get('faculties', [FacultiesController::class, 'index']);
 Route::get('faculties/faculty-{faculty}', [FacultiesController::class, 'show']);
 Route::get('faculties/faculty-{_}/cathedra-{cathedra}', [CathedrasController::class, 'show']);
 Route::get('faculties/faculty-{_1}/cathedra-{_2}/teacher-{teacher}', [TeachersController::class, 'show']);
+
+Route::get('list', [ListController::class, 'index']);
+Route::get('list/by-teacher-{teacher}', [ListController::class, 'show']);

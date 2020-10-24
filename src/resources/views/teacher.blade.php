@@ -1,10 +1,9 @@
 @extends('layouts.default')
 
-@section('title') {{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }}  @endsection
+@section('title') {{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }} @endsection
 @section('description') NULL @endsection
 
 @section('content')
-
 <div class="container">
     <div class="text-center my-5">
         <h1 class="title">{{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }}</h1>
@@ -14,14 +13,22 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="d-flex flex-row flex-wrap flex-lg-nowrap justify-content-around align-items-center my-5">
-        <div>
+<div class="container mb-5">
+    <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center h-100">
+        <div class="col-12 col-lg-4">
             <img class="stuff-image" src={{ $teacher->thumbnail }} alt="person">
         </div>
-        <div class="text-center text-lg-left mt-4 mt-lg-0">
-            <span class="stuff-person-info"> {{ $teacher->degree }} </span>
-            <div><span class="condensed"> {{ $teacher->about }} </span></div>
+        <div
+            class="stuff-person d-flex flex-column justify-content-around align-item-center text-justify mt-4 mt-lg-0 px-5">
+            <span class="mt-5 text-center stuff-person-degree">{{ $teacher->degree }}</span>
+            <span class="mt-5 stuff-person-about">{{ $teacher->about }}</span>
+
+            <div class="mt-5 d-flex flex-row justify-content-center align-items-center mb-3">
+                <div class="mr-4 condensed">Files</div>
+                <a class="ml-5 stuff-person-go" href="/list/by-teacher-{{ $teacher->id }}">
+                    <div class="px-3 py-1 roboto16">Show</div>
+                </a>
+            </div>
         </div>
     </div>
 </div>

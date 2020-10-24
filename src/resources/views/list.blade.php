@@ -15,89 +15,34 @@
 </div>
 <div class="container">
     <div class="row d-flex flex-column-reverse flex-lg-row">
-        <div class="col-lg-8 mx-md-0">
-            <div class="row post mx-auto">
-                <div class="post-inner">
-                    <a href="#">
-                        <h2 class="link second-title">Caption</h2>
-                    </a>
-                    <div class="d-md-block d-flex flex-column">
-                        <span class="span-with-line mr-3">Date: <span class="color_cont">June 13,
-                                2019</span></span>
-                        <span class="ml-md-3 ml-0">Author: <span class="color_cont">John Smith</span></span>
-                    </div>
-                    <p class="roboto16 mt-3 text-justify">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque delectus sequi iusto
-                        quod, at totam soluta ex tempora fuga itaque, vel nemo asperiores unde, officia
-                        reiciendis temporibus. Veritatis, repellat odio.
-                    </p>
-                </div>
-            </div>
+        <div class="posts col-lg-8 mx-md-0">
+            @foreach($books as $book)
             <div class="row post mx-auto mt-2">
                 <div class="post-inner">
-                    <a href="#">
-                        <h2 class="link second-title">Caption</h2>
+                    <a class="text-justify" href="#">
+                        <h2 class="link second-title">{{ $book->title }}</h2>
                     </a>
                     <div class="d-md-block d-flex flex-column">
-                        <span class="span-with-line mr-3">Date: <span class="color_cont">June 13,
-                                2019</span></span>
-                        <span class="ml-md-3 ml-0">Author: <span class="color_cont">John Smith</span></span>
+                        <span class="span-with-line mr-3">
+                            Date:
+                            <span class="color_cont">{{ $book->updated_at }}</span>
+                        </span>
+                        <span class="ml-md-3 ml-0">
+                            Author:
+                            <span class="color_cont">
+                                {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }} {{ $book->Teacher->mid_name }}
+                            </span>
+                        </span>
                     </div>
-                    <p class="roboto16 mt-3 text-justify">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque delectus sequi iusto
-                        quod, at totam soluta ex tempora fuga itaque, vel nemo asperiores unde, officia
-                        reiciendis temporibus. Veritatis, repellat odio.
-                    </p>
+                    <p class="roboto16 mt-3 text-justify">{{ $book->short_description }}</p>
                 </div>
             </div>
-            <div class="row post mx-auto mt-2">
-                <div class="post-inner">
-                    <a href="#">
-                        <h2 class="link second-title">Caption</h2>
-                    </a>
-                    <div class="d-md-block d-flex flex-column">
-                        <span class="span-with-line mr-3">Date: <span class="color_cont">June 13,
-                                2019</span></span>
-                        <span class="ml-md-3 ml-0">Author: <span class="color_cont">John Smith</span></span>
-                    </div>
-                    <p class="roboto16 mt-3 text-justify">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque delectus sequi iusto
-                        quod, at totam soluta ex tempora fuga itaque, vel nemo asperiores unde, officia
-                        reiciendis temporibus. Veritatis, repellat odio.
-                    </p>
-                </div>
-            </div>
-            <div class="row post mx-auto mt-2">
-                <div class="post-inner">
-                    <a href="#">
-                        <h2 class="link second-title">Caption</h2>
-                    </a>
-                    <div class="d-md-block d-flex flex-column">
-                        <span class="span-with-line mr-3">Date: <span class="color_cont">June 13,
-                                2019</span></span>
-                        <span class="ml-md-3 ml-0">Author: <span class="color_cont">John Smith</span></span>
-                    </div>
-                    <p class="roboto16 mt-3 text-justify">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque delectus sequi iusto
-                        quod, at totam soluta ex tempora fuga itaque, vel nemo asperiores unde, officia
-                        reiciendis temporibus. Veritatis, repellat odio.
-                    </p>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center my-5">
-                <div class="pagination roboto18lt">
-                    <a href="#">&laquo;</a>
-                    <a class="active" href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">&raquo;</a>
-                </div>
+            @endforeach
+            <div class="d-flex justify-content-center my-5">
+                {{ $books->links('vendor.pagination.default')}}
             </div>
         </div>
-        <div class="col-lg-4 d-flex flex-column align-items-center align-items-lg-start mb-5 mb-lg-0">
+        <div class="col-lg-4 d-flex flex-column align-items-center align-items-lg-start mb-5 mb-lg-0 mt-lg-2">
             <div class="">
                 <form class="search-form m-0" action="#" method="get">
                     <span>

@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Cathedra;
+use App\Models\Teacher;
 
-class CathedraSeeder extends Seeder
+class BookSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class CathedraSeeder extends Seeder
      */
     public function run()
     {
-        Cathedra::factory()->count(4)->create();
+        Teacher::factory()->count(64)->create();
     }
 }

@@ -13,4 +13,8 @@ class Teacher extends Model
     public function cathedra() {
         return $this->belongsTo('App\Models\Cathedra');
     }
+
+    public function books() {
+        return $this->hasMany('App\Models\Book');
+    }
 }
