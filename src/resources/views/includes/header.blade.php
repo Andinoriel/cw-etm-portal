@@ -39,7 +39,7 @@
                     <ul class="navbar-nav w-100 d-md-flex flex-md-row justify-content-md-end">
                         <li class="nav-item mx-md-1">
                             <a class="nav-link {{request()->is('/') ? 'active' : ''}}" href="/">
-                                Main Page {{-- <span class="sr-only">(current)</span> --}}
+                                Main Page
                             </a>
                         </li>
                         <li class="nav-item mx-md-1">
@@ -48,7 +48,8 @@
                             </a>
                         </li>
                         <li class="nav-item mx-md-1">
-                            <a class="nav-link {{request()->is('faculties') ? 'active disabled' : ''}}" href="/faculties">
+                            <a class="nav-link {{request()->is('faculties') ? 'active disabled' : ''}}"
+                                href="/faculties">
                                 Faculties
                             </a>
                         </li>

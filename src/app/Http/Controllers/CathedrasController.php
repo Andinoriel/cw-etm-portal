@@ -10,7 +10,6 @@ class CathedrasController extends Controller
 {
     public function show(Faculty $_, Cathedra $cathedra) {
         return view('stuff', [
-            'faculty' => $_,
             'cathedra' => $cathedra
         ]);
     }

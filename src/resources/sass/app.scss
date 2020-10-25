@@ -22,11 +22,6 @@
     font-size: 24px;
 }
 
-.roboto20md {
-    font-size: 20px !important;
-    font-family: "Roboto Medium", sans-serif !important;
-}
-
 .roboto24lt {
     font-family: "Roboto", sans-serif;
     font-size: 24px;
@@ -131,6 +126,7 @@ div.wrapper-container {
 
     & .dropdown-item:hover {
         background-color: darken($color: #fff, $amount: 10%);
+        transition: .3s;
     }
 }
 
@@ -156,32 +152,6 @@ div.wrapper-container {
         font-weight: 600;
         color: #ababab;
     }
-}
-
-.search {
-    &-field {
-        background-color: #ecedef;
-        font-size: 16px;
-        padding-left: 15px;
-        border: none
-    }
-
-    &-icon {
-        background-color: #d80056;
-        border: none;
-        padding: 0 27px;
-    }
-
-    & input::-webkit-input-placeholder {
-        color: #000000;
-        font-family: "Roboto", sans-serif;
-        font-weight: 600;
-    }
-}
-
-
-.h46 {
-    height: 46px;
 }
 
 /*#endregion Footer*/
@@ -779,39 +749,6 @@ $color-wood-2: #410A09;
     }
 }
 
-.search-form {
-    margin-right: 50px;
-
-    & input,
-    button {
-        border: none;
-    }
-
-    & input:focus {
-        outline: none;
-    }
-
-    & button {
-        background-color: transparent;
-        cursor: pointer;
-
-        &:focus {
-            outline: none;
-        }
-
-        &:hover {
-            background: black !important;
-        }
-    }
-
-    & span {
-        display: block;
-        padding: 5px 20px;
-        border: 1px solid #c6c6c6;
-        border-radius: 5px;
-    }
-}
-
 .undefined-block {
     & h3 {
         font-family: "Roboto", sans-serif;
@@ -979,7 +916,37 @@ $color-wood-2: #410A09;
     }
 }
 
+.search {
+    & form {
+        height: 46px;
+    }
 
+    &-field {
+        background-color: #ecedef;
+        font-size: 16px;
+        padding-left: 15px;
+        border: none;
+        outline-style: none;
+
+        &:hover,
+        &:focus {
+            background: darken(#ecedef, 5%);
+            transition: .3s;
+        }
+    }
+
+    &-button {
+        background-color: #d80056;
+        border: none;
+        padding: 0 27px;
+        outline-style: none;
+
+        &:hover {
+            background-color: darken($color: #d80056, $amount: 5%);
+            transition: .3s;
+        }
+    }
+}
 
 
 /*#endregion Pages*/

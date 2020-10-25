@@ -1,12 +1,12 @@
 @extends('layouts.default')
 
 @section('title')
-    @if(Request::is('list/by-teacher-*'))
-    {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
-    — Files
-    @else
-    All Files
-    @endif
+@if(Request::is('list/by-teacher-*'))
+TMD - {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
+— Files
+@else
+TMD - All Files
+@endif
 @endsection
 @section('description') NULL @endsection
 
@@ -43,7 +43,8 @@
                         </span>
                         <span class="ml-md-3 ml-0">
                             Author:
-                            <a href="/faculties/faculty-{{ $book->Teacher->Cathedra->Faculty->id }}/cathedra-{{ $book->Teacher->Cathedra->id }}/teacher-{{ $book->Teacher->id }}">
+                            <a
+                                href="/faculties/faculty-{{ $book->Teacher->Cathedra->Faculty->id }}/cathedra-{{ $book->Teacher->Cathedra->id }}/teacher-{{ $book->Teacher->id }}">
                                 <span class="color_cont">
                                     {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }}
                                     {{ $book->Teacher->mid_name }}
@@ -56,16 +57,16 @@
             </div>
             @endforeach
             <div class="d-flex justify-content-center my-5">
-                {{ $books->links('vendor.pagination.default')}}
+                {{ $books->links('pagination.default')}}
             </div>
         </div>
         <div class="col-lg-4 d-flex flex-column align-items-center align-items-lg-start mb-5 mb-lg-0 mt-lg-2">
-            <div class="">
-                <form class="search-form m-0" action="#" method="get">
-                    <span>
-                        <input type="text" placeholder="Find...">
-                        <button type="submit">Find</button>
-                    </span>
+            <div class="d-flex flex-row justify-content-center align-items-start search">
+                <form class="d-flex">
+                    <input type="text" placeholder="Search" class="search-field">
+                    <button class="search-button">
+                        <img src="{{ asset('images/search.svg') }}" width="21" height="21">
+                    </button>
                 </form>
             </div>
             <div class="d-none d-lg-flex flex-column mt-5 ml-0 ml-lg-4 undefined-block">
