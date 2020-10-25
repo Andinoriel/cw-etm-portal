@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-@if(Request::is('list/by-teacher-*'))
+@if(Request::is('books/by-teacher-*'))
 TMD - {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
 — Files
 @else
@@ -14,7 +14,7 @@ TMD - All Files
 <div class="container">
     <div class="text-center my-5">
         <h1 class="title">
-            @if(Request::is('list/by-teacher-*'))
+            @if(Request::is('books/by-teacher-*'))
             {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
             — Files
             @else
@@ -33,23 +33,22 @@ TMD - All Files
             @foreach($books as $book)
             <div class="row post mx-auto mt-2">
                 <div class="post-inner">
-                    <a class="text-justify" href="#">
-                        <h2 class="link second-title">{{ $book->title }}</h2>
-                    </a>
+                    <span class="link-default-2 roboto28smbd">
+                        <a href="/books/book-{{ $book->id }}">{{ $book->title }}</a>
+                    </span>
                     <div class="d-md-block d-flex flex-column">
                         <span class="span-with-line mr-3">
                             Date:
-                            <span class="color_cont">{{ $book->updated_at }}</span>
+                            <span class="color-cont">{{ $book->updated_at }}</span>
                         </span>
                         <span class="ml-md-3 ml-0">
                             Author:
-                            <a
-                                href="/faculties/faculty-{{ $book->Teacher->Cathedra->Faculty->id }}/cathedra-{{ $book->Teacher->Cathedra->id }}/teacher-{{ $book->Teacher->id }}">
-                                <span class="color_cont">
+                            <span class="link-default">
+                                <a href="/faculties/faculty-{{ $book->Teacher->Cathedra->Faculty->id }}/cathedra-{{ $book->Teacher->Cathedra->id }}/teacher-{{ $book->Teacher->id }}">
                                     {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }}
                                     {{ $book->Teacher->mid_name }}
-                                </span>
-                            </a>
+                                </a>
+                            </span>
                         </span>
                     </div>
                     <p class="roboto16 mt-3 text-justify">{{ $book->short_description }}</p>

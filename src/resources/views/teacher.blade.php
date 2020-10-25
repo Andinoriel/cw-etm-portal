@@ -40,7 +40,7 @@
 
             <div class="mt-5 d-flex flex-row justify-content-center align-items-center mb-3">
                 <div class="mr-4 condensed">Files</div>
-                <a class="ml-5 stuff-person-go" href="/list/by-teacher-{{ $teacher->id }}">
+                <a class="ml-5 stuff-person-go" href="/books/by-teacher-{{ $teacher->id }}">
                     <div class="px-5 py-3 roboto16">Show</div>
                 </a>
             </div>

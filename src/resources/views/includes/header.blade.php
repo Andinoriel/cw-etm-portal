@@ -7,18 +7,10 @@
                 </div>
                 <div
                     class="d-flex flex-column flex-lg-row justify-content-around align-items-start align-items-lg-center top-header-contacts">
-                    <div class="d-none d-lg-flex mt-md-0 ml-3">
-                        <img src="{{ asset ('images/placeholder.svg') }}" heigth="20px" width="20px" alt="position">
-                        <span class="pl-2"><a href="https://goo.gl/maps/pAsua69ryAs6pWeB7">Mariupol</a></span>
-                    </div>
-                    <div class="d-none d-lg-flex mt-2 mt-md-0 ml-3">
-                        <img src="{{ asset('images/email.svg') }}" heigth="20px" width="20px" alt="mail">
-                        <span class="pl-2"><a href="mailto:mail@gmail.com">mail@gmail.com</a></span>
-                    </div>
-                    <div class="d-flex ml-lg-3">
+                    <div class="d-flex link-default ml-lg-3">
                         <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
                             alt="registration">
-                        <a class="btn-reg ml-2" href="#">Sign In / Sign Up</a>
+                        <a class="ml-2" href="#">Sign In / Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -28,7 +20,7 @@
         <nav class="header navbar navbar-expand-md navbar-light bg-light">
             <div class="container">
                 <div class="col-3 col-md-4">
-                    <a class="ml-2 navbar-brand" href="#">LOGO</a>
+                    <a class="ml-2 navbar-brand" href="/">LOGO</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -43,7 +35,7 @@
                             </a>
                         </li>
                         <li class="nav-item mx-md-1">
-                            <a class="nav-link {{request()->is('list') ? 'active disabled' : ''}}" href="/list">
+                            <a class="nav-link {{request()->is('books') ? 'active disabled' : ''}}" href="/books">
                                 All Files
                             </a>
                         </li>

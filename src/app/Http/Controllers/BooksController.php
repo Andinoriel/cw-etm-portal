@@ -6,18 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Book;
 
-class ListController extends Controller
+class BooksController extends Controller
 {
     public function index()
     {       
-        return view('list', [
+        return view('books', [
             'books' => Book::paginate(6),
         ]);
     }
 
     public function show(Teacher $teacher) {
-        return view('list', [
+        return view('books', [
             'books' => $teacher->books()->paginate(6)
+        ]);
+    }
+
+    public function book(Book $book) {
+        return view('book', [
+            'book' => $book
         ]);
     }
 }

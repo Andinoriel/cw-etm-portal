@@ -17,6 +17,12 @@
     font-weight: 600;
 }
 
+.roboto28smbd {
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+}
+
 .roboto24 {
     font-family: "Roboto", sans-serif;
     font-size: 24px;
@@ -688,11 +694,7 @@ $color-wood-2: #410A09;
     }
 }
 
-.link {
-    color: #5cb8d7;
-}
-
-.color_cont {
+.color-cont {
     color: #ff8c01;
 }
 
@@ -713,18 +715,6 @@ $color-wood-2: #410A09;
 
         & img {
             max-width: 100%;
-        }
-
-        & h2 {
-            font-family: "Roboto", sans-serif;
-            font-weight: 300;
-        }
-
-        & span {
-            display: inline-block;
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            font-size: 14px;
         }
     }
 }
@@ -948,5 +938,37 @@ $color-wood-2: #410A09;
     }
 }
 
+.book {
+    &-image {
+        object-position: center;
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+
+    &-info {}
+}
+
+.link-default {
+    & a {
+        color: #ff8c01;
+        text-decoration: none;
+
+        &:hover {
+            transition: .3s;
+            color: darken($color: #ff8c01, $amount: 15%);
+        }
+    }
+
+    &-2 a {
+        color: #5cb8d7;
+        text-decoration: none;
+
+        &:hover {
+            transition: .3s;
+            color: darken($color: #5cb8d7, $amount: 15%);
+        }
+    }
+}
 
 /*#endregion Pages*/

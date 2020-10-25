@@ -14,6 +14,12 @@
   font-weight: 600;
 }
 
+.roboto28smbd {
+  font-family: "Roboto", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
 .roboto24 {
   font-family: "Roboto", sans-serif;
   font-size: 24px;
@@ -746,11 +752,7 @@ div.wrapper-container {
   color: #ff8c01;
 }
 
-.link {
-  color: #5cb8d7;
-}
-
-.color_cont {
+.color-cont {
   color: #ff8c01;
 }
 
@@ -769,18 +771,6 @@ div.wrapper-container {
 
 .post-inner img {
   max-width: 100%;
-}
-
-.post-inner h2 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-}
-
-.post-inner span {
-  display: inline-block;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
 }
 
 .pagination span,
@@ -984,6 +974,35 @@ div.wrapper-container {
 .search-button:hover {
   background-color: #bf004c;
   transition: 0.3s;
+}
+
+.book-image {
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.link-default a {
+  color: #ff8c01;
+  text-decoration: none;
+}
+
+.link-default a:hover {
+  transition: 0.3s;
+  color: #b46200;
+}
+
+.link-default-2 a {
+  color: #5cb8d7;
+  text-decoration: none;
+}
+
+.link-default-2 a:hover {
+  transition: 0.3s;
+  color: #2d96b9;
 }
 
 /*#endregion Pages*/

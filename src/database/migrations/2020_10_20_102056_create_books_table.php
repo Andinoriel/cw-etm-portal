@@ -18,6 +18,8 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('short_description');
             $table->text('description');
+            $table->string('thumbnail');
+            $table->string('url_download');
             $table->foreignId('teacher_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
