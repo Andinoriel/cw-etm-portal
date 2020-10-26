@@ -821,7 +821,7 @@ $color-wood-2: #410A09;
         transform: translate(-50%, -50%);
         -webkit-transition: all 0.3s ease-in-out 0s;
         -moz-transition: all 0.3s ease-in-out 0s;
-        transition: all 0.3s ease-in-out 0s
+        transition: all 0.3s ease-in-out 0s;
     }
 
     &:hover .content-details {
@@ -844,8 +844,8 @@ $color-wood-2: #410A09;
     }
 }
 
-.fadeIn-bottom {
-    top: 80%;
+.move-bottom {
+    top: 100%;
 }
 
 .stuff {

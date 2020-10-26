@@ -21,7 +21,7 @@
                 <a href="/faculties/faculty-{{ $faculty->id }}/cathedra-{{ $cathedra->id }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src={{ $cathedra->thumbnail }}>
-                    <div class="content-details fadeIn-bottom">
+                    <div class="content-details move-bottom">
                         <span class="roboto18 content-title">{{ $cathedra->name }}</span>
                     </div>
                 </a>

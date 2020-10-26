@@ -887,8 +887,8 @@ div.wrapper-container {
   font-size: 0.8em;
 }
 
-.fadeIn-bottom {
-  top: 80%;
+.move-bottom {
+  top: 100%;
 }
 
 .stuff-person-go {

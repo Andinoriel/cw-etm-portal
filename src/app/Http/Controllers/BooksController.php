@@ -22,7 +22,7 @@ class BooksController extends Controller
     }
 
     public function book(Book $book) {
-        return view('public.book', [
+        return view('public.books-single', [
             'book' => $book
         ]);
     }
