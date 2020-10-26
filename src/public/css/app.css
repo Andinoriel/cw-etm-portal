@@ -991,6 +991,32 @@ div.wrapper-container {
      object-fit: cover;
 }
 
+.book-info-go {
+  background-color: #ff8c01;
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.book-info-go:hover {
+  text-decoration: none;
+  background-color: #d87701;
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.book-info-short {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: #0d0d0d;
+}
+
+.book-info-long {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #0d0d0d;
+}
+
 .link-default a {
   color: #ff8c01;
   text-decoration: none;

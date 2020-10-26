@@ -953,7 +953,33 @@ $color-wood-2: #410A09;
         object-fit: cover;
     }
 
-    &-info {}
+    &-info {
+        &-go {
+            background-color: #ff8c01;
+            color: inherit;
+            transition: all .3s;
+
+            &:hover {
+                text-decoration: none;
+                background-color: #d87701;
+                color: inherit;
+                transition: all .3s;
+            }
+        }
+
+        &-short {
+            font-family: "Roboto", sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #0d0d0d;
+        }
+
+        &-long {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            color: #0d0d0d;
+        }
+    }
 }
 
 .link-default {
@@ -977,5 +1003,6 @@ $color-wood-2: #410A09;
         }
     }
 }
+
 
 /*#endregion Pages*/

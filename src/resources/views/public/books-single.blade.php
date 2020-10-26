@@ -20,9 +20,14 @@
         </div>
         <div
             class="book-info d-flex flex-column justify-content-around align-item-center text-justify mt-4 mt-lg-0 px-5">
-            {{ $book->short_description }}
-            {{ $book->description }}
-            {{ $book->url_download }}
+            <span class="mt-5 text-center book-info-short">{{ $book->short_description }}</span>
+            <span class="mt-5 book-info-long">{{ $book->description }}</span>
+            <div class="mt-5 d-flex flex-row justify-content-center align-items-center mb-3">
+                <div class="mr-4 condensed">Attachment</div>
+                <a class="ml-5 book-info-go" href={{ $book->url_download }}>
+                    <div class="px-5 py-3 roboto16">Download</div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
