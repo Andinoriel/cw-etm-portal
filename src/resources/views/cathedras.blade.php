@@ -6,7 +6,7 @@
 @section('content')
 <div class="container">
     <div class="text-center my-5">
-        <h1 class="title">{{ $faculty->name }} - Cathedras</h1>
+        <h1 class="title">{{ $faculty->name }} — Cathedras</h1>
         <div class="d-flex flex-row justify-content-center double-color-line">
             <div></div>
             <div></div>

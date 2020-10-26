@@ -37,6 +37,12 @@
   font-weight: 700;
 }
 
+.roboto20 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
 .roboto18lt {
   font-family: "Roboto", sans-serif;
   font-size: 18px;

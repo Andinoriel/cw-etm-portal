@@ -56,7 +56,7 @@ TMD - All Files
             </div>
             @endforeach
             <div class="d-flex justify-content-center my-5">
-                {{ $books->links('pagination.default')}}
+                {{ $books->links('pagination.default') }}
             </div>
         </div>
         <div class="col-lg-4 d-flex flex-column align-items-center align-items-lg-start mb-5 mb-lg-0 mt-lg-2">
