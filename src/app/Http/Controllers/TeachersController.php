@@ -10,7 +10,7 @@ use App\Models\Teacher;
 class TeachersController extends Controller
 {
     public function show(Faculty $_1, Cathedra $_2, Teacher $teacher) {
-        return view('teacher', [
+        return view('public.teacher', [
             'teacher' => $teacher
         ]);
     }

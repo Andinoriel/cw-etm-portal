@@ -9,13 +9,13 @@ class FacultiesController extends Controller
 {
     public function index()
     {       
-        return view('faculties', [
+        return view('public.faculties', [
             'faculties' => Faculty::get()
         ]);
     }
 
     public function show(Faculty $faculty) {
-        return view('cathedras', [
+        return view('public.cathedras', [
             'faculty' => $faculty
         ]);
     }

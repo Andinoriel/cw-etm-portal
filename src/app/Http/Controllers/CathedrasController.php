@@ -9,7 +9,7 @@ use App\Models\Cathedra;
 class CathedrasController extends Controller
 {
     public function show(Faculty $_, Cathedra $cathedra) {
-        return view('stuff', [
+        return view('public.stuff', [
             'cathedra' => $cathedra
         ]);
     }
