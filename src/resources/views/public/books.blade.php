@@ -1,12 +1,19 @@
 @extends('layouts.default')
 
 @section('title')
-@if(Request::is('books/by-teacher-*'))
-TMD - {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
+@switch(Request::url())
+@case(Request::is('books/by-teacher-*'))
+{{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
 — Files
-@else
-TMD - All Files
-@endif
+@break
+
+@case(Request::is('books/by-subject-*'))
+{{ $books[0]->Subject->name }} — Files
+@break
+
+@default
+All Files
+@endswitch
 @endsection
 @section('description') NULL @endsection
 
@@ -14,12 +21,19 @@ TMD - All Files
 <div class="container">
     <div class="text-center my-5">
         <h1 class="title">
-            @if(Request::is('books/by-teacher-*'))
+            @switch(Request::url())
+            @case(Request::is('books/by-teacher-*'))
             {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
             — Files
-            @else
+            @break
+
+            @case(Request::is('books/by-subject-*'))
+            {{ $books[0]->Subject->name }} — Files
+            @break
+
+            @default
             All Files
-            @endif
+            @endswitch
         </h1>
         <div class="d-flex flex-row justify-content-center double-color-line">
             <div></div>
@@ -36,20 +50,35 @@ TMD - All Files
                     <span class="link-default-2 roboto28smbd">
                         <a href="/books/book-{{ $book->id }}">{{ $book->title }}</a>
                     </span>
-                    <div class="d-md-block d-flex flex-column">
-                        <span class="span-with-line mr-3">
-                            Date:
-                            <span class="color-cont">{{ $book->updated_at }}</span>
-                        </span>
-                        <span class="ml-md-3 ml-0">
-                            Author:
-                            <span class="link-default">
-                                <a href="/faculties/faculty-{{ $book->Teacher->Cathedra->Faculty->id }}/cathedra-{{ $book->Teacher->Cathedra->id }}/teacher-{{ $book->Teacher->id }}">
-                                    {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }}
-                                    {{ $book->Teacher->mid_name }}
-                                </a>
+                    <div>
+                        <div class="d-flex flex-column flex-wrap flex-md-row">
+                            <span class="mr-3">
+                                Updated at:
+                                <span class="color-cont">{{ $book->updated_at }}</span>
                             </span>
-                        </span>
+                            @if(!Request::is('books/by-teacher-*'))
+                            <span class="ml-md-3 ml-0">
+                                Author:
+                                <span class="link-default">
+                                    <a
+                                        href="/faculties/faculty-{{ $book->Teacher->Cathedra->Faculty->id }}/cathedra-{{ $book->Teacher->Cathedra->id }}/teacher-{{ $book->Teacher->id }}">
+                                        {{ $book->Teacher->last_name }} {{ $book->Teacher->first_name }}
+                                        {{ $book->Teacher->mid_name }}
+                                    </a>
+                                </span>
+                            </span>
+                            @endif
+                            @if(!Request::is('books/by-subject-*'))
+                            <span class="w-100">
+                                Subject:
+                                <span class="link-default">
+                                    <a href="/books/by-subject-{{ $book->Subject->id }}">
+                                        {{ $book->Subject->name }}
+                                    </a>
+                                </span>
+                            </span>
+                            @endif
+                        </div>
                     </div>
                     <p class="roboto16 mt-3 text-justify">{{ $book->short_description }}</p>
                 </div>

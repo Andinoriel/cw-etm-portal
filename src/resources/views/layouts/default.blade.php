@@ -7,6 +7,10 @@
 
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -18,13 +22,13 @@
 
 <body>
     <div class="wrapper-container d-flex flex-column min-vh-100">
-        @include('includes.header')
+        @include('layouts.includes.header')
 
         <main class="my-auto">
             @yield('content')
         </main>
 
-        @include('includes.footer')
+        @include('layouts.includes.footer')
     </div>
     <!-- /.wrapper-container -->
 

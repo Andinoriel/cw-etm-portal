@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Book;
+use App\Models\Subject;
 
 class BooksController extends Controller
 {
@@ -15,9 +16,15 @@ class BooksController extends Controller
         ]);
     }
 
-    public function show(Teacher $teacher) {
+    public function showByTeacher(Teacher $teacher) {
         return view('public.books', [
             'books' => $teacher->books()->paginate(6)
+        ]);
+    }
+
+    public function showBySubject(Subject $subject) {
+        return view('public.books', [
+            'books' => $subject->books()->paginate(6)
         ]);
     }
 

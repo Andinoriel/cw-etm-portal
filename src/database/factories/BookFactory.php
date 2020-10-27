@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Book;
 use App\Models\Teacher;
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BookFactory extends Factory
@@ -30,7 +31,8 @@ class BookFactory extends Factory
             'url_download' => 'https://www.google.com/intl/en_US/drive/',
             'created_at' => now(),
             'updated_at' => now(),
-            'teacher_id' => $this->faker->randomElement(Teacher::get()->pluck('id')->toArray())
+            'teacher_id' => $this->faker->randomElement(Teacher::get()->pluck('id')->toArray()),
+            'subject_id' => $this->faker->randomElement(Subject::get()->pluck('id')->toArray()),
         ];
     }
 }

@@ -24,5 +24,6 @@ Route::get('faculties/faculty-{_}/cathedra-{cathedra}', [CathedrasController::cl
 Route::get('faculties/faculty-{_1}/cathedra-{_2}/teacher-{teacher}', [TeachersController::class, 'show']);
 
 Route::get('books', [BooksController::class, 'index']);
-Route::get('books/by-teacher-{teacher}', [BooksController::class, 'show']);
+Route::get('books/by-teacher-{teacher}', [BooksController::class, 'showByTeacher']);
+Route::get('books/by-subject-{subject}', [BooksController::class, 'showBySubject']);
 Route::get('books/book-{book}', [BooksController::class, 'book']);
