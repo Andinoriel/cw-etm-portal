@@ -6,15 +6,15 @@
                     TMD of Pryazovskyi State Technical University
                 </div>
                 <div
-                    class="d-flex flex-column flex-lg-row justify-content-around align-items-start align-items-lg-center top-header-contacts">
+                    class="d-flex flex-column flex-sm-row justify-content-around align-items-start align-items-lg-center top-header-contacts">
                     @guest
-                    <div class="d-flex link-default ml-lg-3">
+                    <div class="d-flex link-default ml-sm-3">
                         <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
                             alt="registration">
                         <a class="ml-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </div>
                     @if (Route::has('register'))
-                    <div class="d-flex link-default ml-lg-3">
+                    <div class="d-flex link-default ml-sm-3">
                         <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
                             alt="registration">
                         <a class="ml-2" href="{{ route('register') }}">{{ __('Register') }}</a>
