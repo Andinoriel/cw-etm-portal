@@ -21,6 +21,9 @@
 </head>
 
 <body>
+    @include('auth.login')
+    @include('auth.register')
+
     <div class="wrapper-container d-flex flex-column min-vh-100">
         @include('layouts.includes.header')
 

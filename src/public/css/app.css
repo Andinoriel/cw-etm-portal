@@ -1025,6 +1025,7 @@ div.wrapper-container {
 .link-default a:hover {
   transition: 0.3s;
   color: #b46200;
+  cursor: pointer;
 }
 
 .link-default-2 a {
@@ -1035,6 +1036,48 @@ div.wrapper-container {
 .link-default-2 a:hover {
   transition: 0.3s;
   color: #2d96b9;
+}
+
+.login-form,
+.register-form {
+  padding: 5%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-form h3,
+.register-form h3 {
+  color: #333;
+}
+
+.login-form .submit,
+.register-form .submit {
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  background-color: #ff8c01;
+}
+
+.login-form .submit:hover,
+.register-form .submit:hover {
+  background-color: #b46200;
+  transition: 0.3s;
+}
+
+.login-form .forget-password,
+.register-form .forget-password {
+  color: #ff8c01;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-form .forget-password:hover,
+.register-form .forget-password:hover {
+  color: #b46200;
+  transition: 0.3s;
 }
 
 /*#endregion Pages*/

@@ -990,6 +990,7 @@ $color-wood-2: #410A09;
         &:hover {
             transition: .3s;
             color: darken($color: #ff8c01, $amount: 15%);
+            cursor: pointer;
         }
     }
 
@@ -1000,6 +1001,46 @@ $color-wood-2: #410A09;
         &:hover {
             transition: .3s;
             color: darken($color: #5cb8d7, $amount: 15%);
+        }
+    }
+}
+
+
+.login, .register {
+    &-form {
+        padding: 5%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+
+        & h3 {
+            color: #333;
+        }
+
+        & .submit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            border: none;
+            cursor: pointer;
+
+            font-weight: 600;
+            color: #fff;
+            background-color: #ff8c01;
+
+            &:hover {
+                background-color: darken($color: #ff8c01, $amount: 15%);
+                transition: .3s;
+            }
+        }
+
+        & .forget-password {
+            color: #ff8c01;
+            font-weight: 600;
+            text-decoration: none;
+
+            &:hover {
+                color: darken($color: #ff8c01, $amount: 15%);
+                transition: .3s;
+            }
         }
     }
 }
