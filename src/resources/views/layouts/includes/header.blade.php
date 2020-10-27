@@ -11,13 +11,13 @@
                     <div class="d-flex link-default ml-lg-3">
                         <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
                             alt="registration">
-                        <a class="ml-2" data-toggle="modal" data-target="#loginModal">{{ __('Login') }}</a>
+                        <a class="ml-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </div>
                     @if (Route::has('register'))
                     <div class="d-flex link-default ml-lg-3">
                         <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
                             alt="registration">
-                        <a class="ml-2" data-toggle="modal" data-target="#registerModal">{{ __('Register') }}</a>
+                        <a class="ml-2" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </div>
                     @endif
                     @else
