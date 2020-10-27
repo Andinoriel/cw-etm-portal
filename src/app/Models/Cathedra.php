@@ -10,6 +10,8 @@ class Cathedra extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = ['name', 'thumbnail'];
+
     public function faculty() {
         return $this->belongsTo('App\Models\Faculty');
     }

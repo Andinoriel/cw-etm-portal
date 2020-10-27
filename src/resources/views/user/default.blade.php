@@ -28,5 +28,11 @@
     {{-- @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
         @include('profile.two-factor-authentication-form')
     @endif --}}
+
+    @can('upload publication')
+    1
+    @else
+    2
+    @endcan
 </div>
 @endsection

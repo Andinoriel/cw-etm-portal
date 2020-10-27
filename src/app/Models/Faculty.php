@@ -10,6 +10,8 @@ class Faculty extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = ['name', 'thumbnail'];
+
     public function cathedras() {
         return $this->hasMany('App\Models\Cathedra');
     }

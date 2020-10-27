@@ -10,6 +10,8 @@ class Subject extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = ['name'];
+
     public function books() {
         return $this->hasMany('App\Models\Book');
     }

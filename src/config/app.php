@@ -175,7 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
-        App\Providers\FortifyUIServiceProvider::class
+        App\Providers\FortifyUIServiceProvider::class,
+
+        // Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 
