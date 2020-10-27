@@ -27,3 +27,5 @@ Route::get('books', [BooksController::class, 'index']);
 Route::get('books/by-teacher-{teacher}', [BooksController::class, 'showByTeacher']);
 Route::get('books/by-subject-{subject}', [BooksController::class, 'showBySubject']);
 Route::get('books/book-{book}', [BooksController::class, 'book']);
+
+Route::view('home', 'user.default')->middleware(['auth', 'verified']);
