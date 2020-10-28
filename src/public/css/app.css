@@ -117,16 +117,6 @@ div.wrapper-container {
   color: #ecedef;
 }
 
-.top-header-contacts a {
-  color: #ff8c01;
-  text-decoration: none;
-}
-
-.top-header-contacts a:hover {
-  transition: all 0.2s;
-  color: #b46200;
-}
-
 .navbar-nav li a {
   text-transform: uppercase;
 }

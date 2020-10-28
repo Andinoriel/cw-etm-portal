@@ -5,49 +5,72 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Support\Facades\DB;
-
 class AdminPanelController extends Controller
 {
     public function index()
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.default', [
-                'faculties' => \App\Models\Faculty::get(),
-                'cathedras' => \App\Models\Cathedra::get(),
-                'subjects' => \App\Models\Subject::get(),
+            return view('admin.default');
+        } else {
+            return abort(404);
+        }
+    }
+
+    public function controlFaculty() 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.faculty.default', [
+                'faculties' => \App\Models\Faculty::paginate(10),
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+    public function createFaculty() 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.faculty.create');
+        } else {
+            return abort(404);
+        }
+    }
+    public function updateFaculty($id) 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.faculty.update', [
+                'faculty' => \App\Models\Faculty::find($id)
             ]);
         } else {
             return abort(404);
         }
     }
 
-    public function createFaculty(Request $request)
+    public function controlSubject() 
     {
-        \App\Models\Faculty::insert([
-            'name' => $request->faculty_name_c,
-            'thumbnail' => $request->faculty_thumbnail_c
-        ]);
-        return back();
-    }
-    public function updateFaculty(Request $request)
-    {
-        $faculty = \App\Models\Faculty::find($request->input('faculty_dropdown_u'));
-        if ($faculty)
-            $faculty->update([
-                'name' => $request->faculty_name_u,
-                'thumbnail' => $request->faculty_thumbnail_u
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.subject.default', [
+                'subjects' => \App\Models\Subject::paginate(10),
             ]);
-        return back();
+        } else {
+            return abort(404);
+        }
     }
-    public function ajax_faculty($id) {
-        return response()->json(\App\Models\Faculty::find($id));
-    }
-    public function deleteFaculty(Request $request)
+    public function createSubject() 
     {
-        $faculty = \App\Models\Faculty::find($request->input('faculty_dropdown_d'));
-        if ($faculty)
-            $faculty->delete();
-        return back();
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.subject.create');
+        } else {
+            return abort(404);
+        }
+    }
+    public function updateSubject($id) 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.subject.update', [
+                'subject' => \App\Models\Subject::find($id)
+            ]);
+        } else {
+            return abort(404);
+        }
     }
 }

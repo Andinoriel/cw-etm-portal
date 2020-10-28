@@ -11,6 +11,10 @@
 {{ $books[0]->Subject->name }} — Files
 @break
 
+@case(Request::is('books/search*'))
+Search — {{ $query}}
+@break
+
 @default
 All Files
 @endswitch
@@ -30,6 +34,11 @@ All Files
             @case(Request::is('books/by-subject-*'))
             {{ $books[0]->Subject->name }} — Files
             @break
+
+            @case(Request::is('books/search*'))
+            Search — {{ $query}}
+            @break
+
 
             @default
             All Files
@@ -85,14 +94,16 @@ All Files
             </div>
             @endforeach
             <div class="d-flex justify-content-center my-5">
-                {{ $books->links('pagination.default') }}
+                {{ $books->withQueryString()->links('pagination.default') }}
             </div>
         </div>
         <div class="col-lg-4 d-flex flex-column align-items-center align-items-lg-start mb-5 mb-lg-0 mt-lg-2">
             <div class="d-flex flex-row justify-content-center align-items-start search">
-                <form class="d-flex">
-                    <input type="text" placeholder="Search" class="search-field">
-                    <button class="search-button">
+                <form class="d-flex" action="/books/search" method="get" role="search">
+                    @csrf
+
+                    <input type="text" name="search" placeholder="Search" class="search-field">
+                    <button class="search-button" type="submit">
                         <img src="{{ asset('images/search.svg') }}" width="21" height="21">
                     </button>
                 </form>

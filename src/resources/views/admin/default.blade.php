@@ -3,10 +3,6 @@
 @section('title') TMD - Admin Panel @endsection
 @section('description') NULL @endsection
 
-@include('admin.control.faculty')
-@include('admin.control.cathedra')
-@include('admin.control.subject')
-
 @section('content')
 <div class="container">
     <div class="text-center my-5">
@@ -23,8 +19,7 @@
     <div class="row block-first">
         <div class="col-12 col-md-4 my-2">
             <div class="content">
-                <a href="admin.control.faculty" style="cursor: pointer" data-toggle="modal"
-                    data-target="#controlFaculty">
+                <a href="{{ route('control-faculty') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
@@ -35,8 +30,7 @@
         </div>
         <div class="col-12 col-md-4 my-2">
             <div class="content">
-                <a href="admin.control.cathedra" style="cursor: pointer" data-toggle="modal"
-                    data-target="#controlCathedra">
+                <a href="">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
@@ -47,8 +41,7 @@
         </div>
         <div class="col-12 col-md-4 my-2">
             <div class="content">
-                <a href="admin.control.subject" style="cursor: pointer" data-toggle="modal"
-                    data-target="#controlSubject">
+                <a href="{{ route('control-subject') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
@@ -76,27 +69,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#faculty_dropdown_u').change(function() {
-            var faculty_id = $(this).val();
-
-            $.ajax({
-                url: 'admin/ajax_faculty/' + faculty_id,
-                type: 'get',
-                dataType: 'json',
-                success: function(response) {
-                    if(response != null){
-                        console.log(response)
-                        $("#faculty_name_u").val(response.name) 
-                        $("#faculty_thumbnail_u").val(response.thumbnail)
-                    }
-                }
-            });        
-        });
-    });
-</script>
 @endsection

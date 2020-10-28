@@ -6,7 +6,7 @@
                     TMD of Pryazovskyi State Technical University
                 </div>
                 <div
-                    class="d-flex flex-column flex-sm-row justify-content-around align-items-start align-items-lg-center top-header-contacts">
+                    class="d-flex flex-column flex-sm-row justify-content-around align-items-center align-items-sm-center top-header-contacts">
                     @guest
                     <div class="d-flex link-default ml-sm-3">
                         <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
@@ -21,13 +21,20 @@
                     </div>
                     @endif
                     @else
-                    {{ Auth::user()->name }}
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                    <div class="link-default">
+                        <a class="btn">{{ Auth::user()->name }}</a>
+                    </div>
+                    <a class="btn btn-light mx-2" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
+                    @can('administrate')
+                    <div class="mx-2">
+                        <a href="{{ route('admin') }}" class="btn btn-light">Admin Panel</a>
+                    </div>                    
+                    @endcan
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
                         @csrf
                     </form>
                     @endguest

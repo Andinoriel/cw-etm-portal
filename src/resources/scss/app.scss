@@ -118,16 +118,6 @@ div.wrapper-container {
         font-size: 14px;
         font-weight: 400;
         color: #ecedef;
-
-        & a {
-            color: #ff8c01;
-            text-decoration: none;
-
-            &:hover {
-                transition: all .2s;
-                color: darken($color: #ff8c01, $amount: 15%);
-            }
-        }
     }
 }
 
