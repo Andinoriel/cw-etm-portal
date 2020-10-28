@@ -796,6 +796,16 @@ $color-wood-2: #410A09;
         transition: all 0.4s ease-in-out 0s
     }
 
+    @media screen and (max-width: 768px) {
+        & .content-overlay {
+            opacity: 1;
+        }
+
+        & .content-details {
+            opacity: 1;
+        }
+    }
+
     &:hover .content-overlay {
         opacity: 1;
     }
@@ -846,6 +856,12 @@ $color-wood-2: #410A09;
 
 .move-bottom {
     top: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .move-bottom {
+        top: 50%;
+    }
 }
 
 .stuff {
@@ -1006,7 +1022,8 @@ $color-wood-2: #410A09;
 }
 
 
-.login, .register {
+.login,
+.register {
     &-form {
         padding: 5%;
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);

@@ -842,6 +842,16 @@ div.wrapper-container {
   transition: all 0.4s ease-in-out 0s;
 }
 
+@media screen and (max-width: 768px) {
+  .content .content-overlay {
+    opacity: 1;
+  }
+
+  .content .content-details {
+    opacity: 1;
+  }
+}
+
 .content:hover .content-overlay {
   opacity: 1;
 }
@@ -889,6 +899,12 @@ div.wrapper-container {
 
 .move-bottom {
   top: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .move-bottom {
+    top: 50%;
+  }
 }
 
 .stuff-person-go {
