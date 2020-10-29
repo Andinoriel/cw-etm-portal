@@ -22,7 +22,7 @@ class TeachersController extends Controller
     //         'thumbnail' => $request->thumbnail,
     //         'faculty_id' => $request->faculty_id
     //     ]);
-    //     return redirect('/admin/control/cathedra')->with('success', 'Cathedra created successfully.');
+    //     return redirect('/admin/control/cathedras')->with('success', 'Cathedra created successfully.');
     // }
     public function update(Request $request, $id)
     {
@@ -35,11 +35,11 @@ class TeachersController extends Controller
             'cathedra_id' => $request->cathedra_id
         ]);
         $teacher->save();
-        return redirect('/admin/control/teacher')->with('success', 'Teacher updated successfully');
+        return redirect('/admin/control/teachers')->with('success', 'Teacher updated successfully');
     }
     // public function delete($id)
     // {
     //     Cathedra::find($id)->delete();
-    //     return redirect('/admin/control/cathedra')->with('success', 'Cathedra deleted successfully');
+    //     return redirect('/admin/control/cathedras')->with('success', 'Cathedra deleted successfully');
     // }
 }

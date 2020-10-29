@@ -16,60 +16,60 @@ class AdminPanelController extends Controller
         }
     }
 
-    #region Admin Panel Views
-    
-    public function controlFaculty() 
+    #region Views
+
+    public function controlFaculties()
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.faculty.default', [
+            return view('admin.control.faculties.default', [
                 'faculties' => \App\Models\Faculty::paginate(10),
             ]);
         } else {
             return abort(404);
         }
     }
-    public function createFaculty() 
+    public function createFaculty()
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.faculty.create');
+            return view('admin.control.faculties.create');
         } else {
             return abort(404);
         }
     }
-    public function updateFaculty($id) 
+    public function updateFaculty($id)
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.faculty.update', [
+            return view('admin.control.faculties.update', [
                 'faculty' => \App\Models\Faculty::find($id)
             ]);
         } else {
             return abort(404);
         }
     }
-    public function controlCathedra() 
+    public function controlCathedras()
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.cathedra.default', [
+            return view('admin.control.cathedras.default', [
                 'cathedras' => \App\Models\Cathedra::paginate(10),
             ]);
         } else {
             return abort(404);
         }
     }
-    public function createCathedra() 
+    public function createCathedra()
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.cathedra.create', [
+            return view('admin.control.cathedras.create', [
                 'faculties' => \App\Models\Faculty::get()
             ]);
         } else {
             return abort(404);
         }
     }
-    public function updateCathedra($id) 
+    public function updateCathedra($id)
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.cathedra.update', [
+            return view('admin.control.cathedras.update', [
                 'cathedra' => \App\Models\Cathedra::find($id),
                 'faculties' => \App\Models\Faculty::get()
             ]);
@@ -78,28 +78,50 @@ class AdminPanelController extends Controller
         }
     }
 
-    public function controlSubject() 
+    public function controlTeachers()
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.subject.default', [
+            return view('admin.control.teachers.default', [
+                'teachers' => \App\Models\Teacher::paginate(10),
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+    public function updateTeacher($id)
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.teachers.update', [
+                'teacher' => \App\Models\Teacher::find($id),
+                'cathedras' => \App\Models\Cathedra::get()
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+
+    public function controlSubjects()
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.subjects.default', [
                 'subjects' => \App\Models\Subject::paginate(10),
             ]);
         } else {
             return abort(404);
         }
     }
-    public function createSubject() 
+    public function createSubject()
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.subject.create');
+            return view('admin.control.subjects.create');
         } else {
             return abort(404);
         }
     }
-    public function updateSubject($id) 
+    public function updateSubject($id)
     {
         if (Auth::user()->can('administrate')) {
-            return view('admin.control.subject.update', [
+            return view('admin.control.subjects.update', [
                 'subject' => \App\Models\Subject::find($id)
             ]);
         } else {
@@ -107,26 +129,41 @@ class AdminPanelController extends Controller
         }
     }
 
-    public function controlTeacher() 
+    #endregion
+
+    #region Search
+
+    public function searchFaculty(Request $request)
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.control.teacher.default', [
-                'teachers' => \App\Models\Teacher::paginate(10),
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.control.faculties.default', [
+            'faculties' => \App\Models\Faculty::where('name', 'like', '%' . $request->search . '%')->paginate(10),
+            'query' => $request->search
+        ]);
     }
-    public function updateTeacher($id) 
+    public function searchCathedra(Request $request)
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.control.teacher.update', [
-                'teacher' => \App\Models\Teacher::find($id),
-                'cathedras' => \App\Models\Cathedra::get()
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.control.cathedras.default', [
+            'cathedras' => \App\Models\Cathedra::where('name', 'like', '%' . $request->search . '%')->paginate(10),
+            'query' => $request->search
+        ]);
+    }
+    public function searchTeacher(Request $request)
+    {
+        return view('admin.control.teachers.default', [
+            'teachers' => \App\Models\Teacher::where('first_name', 'like', '%' . $request->search . '%')
+                ->orWhere('first_name', 'like', '%' . $request->search . '%')
+                ->orWhere('last_name', 'like', '%' . $request->search . '%')
+                ->orWhere('mid_name', 'like', '%' . $request->search . '%')
+                ->paginate(10),
+            'query' => $request->search
+        ]);
+    }
+    public function searchSubject(Request $request)
+    {
+        return view('admin.control.subjects.default', [
+            'subjects' => \App\Models\Subject::where('name', 'like', '%' . $request->search . '%')->paginate(10),
+            'query' => $request->search
+        ]);
     }
 
     #endregion

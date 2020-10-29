@@ -29,7 +29,7 @@ class FacultiesController extends Controller
             'thumbnail' => $request->thumbnail
         ]);
 
-        return redirect('/admin/control/faculty')->with('success', 'Faculty created successfully.');
+        return redirect('/admin/control/faculties')->with('success', 'Faculty created successfully.');
     }
     public function update(Request $request, $id)
     {
@@ -38,11 +38,11 @@ class FacultiesController extends Controller
             'thumbnail' => $request->thumbnail
         ]);
 
-        return redirect('/admin/control/faculty')->with('success', 'Faculty updated successfully');
+        return redirect('/admin/control/faculties')->with('success', 'Faculty updated successfully');
     }
     public function delete($id)
     {
         Faculty::find($id)->delete();
-        return redirect('/admin/control/faculty')->with('success', 'Faculty deleted successfully');
+        return redirect('/admin/control/faculties')->with('success', 'Faculty deleted successfully');
     }
 }

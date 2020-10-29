@@ -16,26 +16,20 @@
     </div>
     @endif
 
-    <form action="{{ route('update-faculty', $faculty->id) }}" method="post">
+    <form action="{{ route('create-subject') }}" method="post">
         @csrf
         <div class="d-flex flex-row justify-content-between align-items-center">
             <div class="">
-                <h2>Edit <b>Faculty</b></h2>
+                <h2>Add New <b>Subject</b></h2>
             </div>
             <div class="">
-                <a href="{{ route('control-faculty') }}" class="btn btn-secondary"> Go Back </a>
+                <a href="{{ route('control-subjects') }}" class="btn btn-secondary"> Go Back </a>
             </div>
         </div>
 
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name"
-                value="{{ $faculty->name }}" required autofocus>
-        </div>
-        <div class="form-group">
-            <label for="thumbnail">Thumbnail</label>
-            <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Thumbnail" required
-                value="{{ $faculty->thumbnail }}" autofocus>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required autofocus>
         </div>
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>

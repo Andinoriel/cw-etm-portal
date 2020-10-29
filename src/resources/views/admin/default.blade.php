@@ -16,10 +16,10 @@
     </div>
 </div>
 <div class="container my-5">
-    <div class="row block-first">
-        <div class="col-12 col-md-3 my-2">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-faculty') }}">
+                <a href="{{ route('control-faculties') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
@@ -28,9 +28,9 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-3 my-2">
+        <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-cathedra') }}">
+                <a href="{{ route('control-cathedras') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
@@ -39,9 +39,9 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-3 my-2">
+        <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-teacher') }}">
+                <a href="{{ route('control-teachers') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
@@ -50,9 +50,9 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-3 my-2">
+        <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-subject') }}">
+                <a href="{{ route('control-subjects') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
@@ -62,12 +62,12 @@
             </div>
         </div>
     </div>
-    <div class="d-flex flex-row justify-content-center double-color-line my-5">
+    <div class="d-flex flex-row justify-content-center double-color-line my-4">
         <div></div>
         <div></div>
     </div>
     <div class="d-flex flex-column flex-md-row justify-content-center">
-        <div class="col-12 col-md-4 my-2">
+        <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
                 <a href="#">
                     <div class="content-overlay"></div>

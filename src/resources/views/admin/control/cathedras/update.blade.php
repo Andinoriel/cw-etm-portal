@@ -23,7 +23,7 @@
                 <h2>Edit <b>Cathedra</b></h2>
             </div>
             <div class="">
-                <a href="{{ route('control-cathedra') }}" class="btn btn-secondary"> Go Back </a>
+                <a href="{{ route('control-cathedras') }}" class="btn btn-secondary"> Go Back </a>
             </div>
         </div>
 
