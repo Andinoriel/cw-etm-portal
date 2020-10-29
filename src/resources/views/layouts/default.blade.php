@@ -37,6 +37,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
+
+    {{-- Login/Register redirect and erros show --}}
+    @if ($authLoginModal ?? '' === 'authLoginModal')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#loginModal').modal('show')
+            })
+        </script>
+    @endif
+    @if ($authRegisterModal ?? '' === 'authRegisterModal')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#registerModal').modal('show')
+            })
+        </script>
+    @endif
+    @if ($errors->any())
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#errorsModal').modal('show')
+            })
+        </script>
+    @endif
+    {{--  --}}
+
     <script src={{ asset('js/app.js') }}></script>
     @yield('scripts')
 </body>

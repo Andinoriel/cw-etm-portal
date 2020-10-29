@@ -32,5 +32,32 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+
+        Fortify::loginView(function () {
+            return view('layouts.default', [
+                'authLoginModal' => 'authLoginModal'
+            ]);
+        });
+        Fortify::registerView(function () {
+            return view('layouts.default', [
+                'authRegisterModal' => 'authRegisterModal'
+            ]);
+        });
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('auth.forgot-password');
+        });
+        Fortify::resetPasswordView(function ($request) {
+            return view('auth.reset-password', ['request' => $request]);
+        });
+        
+        // Fortify::verifyEmailView(function () {
+        //     return view('auth.verify-email');
+        // });
+        // Fortify::confirmPasswordView(function () {
+        //     return view('auth.confirm-password');
+        // });
+        // Fortify::twoFactorChallengeView(function () {
+        //     return view('auth.two-factor-challenge');
+        // });
     }
 }

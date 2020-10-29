@@ -30,9 +30,10 @@ class CathedrasController extends Controller
         $cathedra->update([
             'name' => $request->name,
             'thumbnail' => $request->thumbnail,
-            'faculty_id' => $request->faculty_id
         ]);
+        $cathedra->faculty_id = Faculty::find($request->faculty_id)->id;
         $cathedra->save();
+        
         return redirect('/admin/control/cathedras')->with('success', 'Cathedra updated successfully');
     }
     public function delete($id)

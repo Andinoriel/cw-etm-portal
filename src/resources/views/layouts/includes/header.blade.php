@@ -1,3 +1,8 @@
+@include('auth.login')
+@include('auth.register')
+
+@include('errors.show')
+
 <header class="mb-auto">
     <div class="container-fluid top-header">
         <div class="container">
@@ -8,35 +13,52 @@
                 <div
                     class="d-flex flex-column flex-sm-row justify-content-around align-items-center align-items-sm-center top-header-contacts">
                     @guest
-                    <div class="d-flex link-default ml-sm-3">
-                        <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
-                            alt="registration">
-                        <a class="ml-2" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </div>
-                    @if (Route::has('register'))
-                    <div class="d-flex link-default ml-sm-3">
-                        <img class="d-none d-sm-flex" src="{{ asset('images/login.svg') }}" height="20px" width="20px"
-                            alt="registration">
-                        <a class="ml-2" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </div>
-                    @endif
-                    @else
-                    <div class="link-default">
-                        <a class="btn">{{ Auth::user()->name }}</a>
-                    </div>
-                    <a class="btn btn-light mx-2" href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    @can('administrate')
-                    <div class="mx-2">
-                        <a href="{{ route('admin') }}" class="btn btn-light">Admin Panel</a>
-                    </div>                    
-                    @endcan
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
-                        @csrf
-                    </form>
+                        @if (Route::has('login'))
+                            <button type="button" class="m-2 btn btn-light" data-toggle="modal" data-target="#loginModal">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-key-fill" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                </svg>
+                            </button>
+                        @endif
+                        @if (Route::has('register'))
+                            <button type="button" class="m-2 btn btn-light" data-toggle="modal" data-target="#registerModal">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                    <path fill-rule="evenodd"
+                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg>
+                            </button>
+                        @endif
+                    @else {{-- !guest --}}
+                        <div class="link-default">
+                            <a class="btn">{{ Auth::user()->name }}</a>
+                        </div>
+                        @can('administrate')
+                            <div class="m-2">
+                                <a href="{{ route('admin') }}" class="btn btn-light">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-wrench" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019L13 11l-.471.242-.529.026-.287.445-.445.287-.026.529L11 13l.242.471.026.529.445.287.287.445.529.026L13 15l.471-.242.529-.026.287-.445.445-.287.026-.529L15 13l-.242-.471-.026-.529-.445-.287-.287-.445-.529-.026z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        @endcan
+                        <a class="btn btn-light m-2" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-closed-fill"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                            </svg>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none" hidden>
+                            @csrf
+                        </form>
                     @endguest
                 </div>
             </div>

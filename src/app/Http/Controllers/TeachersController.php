@@ -32,9 +32,10 @@ class TeachersController extends Controller
             'last_name' => $request->last_name,
             'mid_name' => $request->mid_name,
             'degree' => $request->degree,
-            'cathedra_id' => $request->cathedra_id
         ]);
+        $teacher->cathedra_id = Cathedra::find($request->cathedra_id)->id;
         $teacher->save();
+
         return redirect('/admin/control/teachers')->with('success', 'Teacher updated successfully');
     }
     // public function delete($id)
