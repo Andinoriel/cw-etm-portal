@@ -45,6 +45,38 @@ class AdminPanelController extends Controller
         }
     }
 
+    public function controlCathedra() 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.cathedra.default', [
+                'cathedras' => \App\Models\Cathedra::paginate(10),
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+    public function createCathedra() 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.cathedra.create', [
+                'faculties' => \App\Models\Faculty::get()
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+    public function updateCathedra($id) 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.cathedra.update', [
+                'cathedra' => \App\Models\Cathedra::find($id),
+                'faculties' => \App\Models\Faculty::get()
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+
     public function controlSubject() 
     {
         if (Auth::user()->can('administrate')) {

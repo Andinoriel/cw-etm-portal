@@ -67,7 +67,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-center my-5">
-                {{ $faculties->links('pagination.default') }}
+                {{ $faculties->withQueryString()->links('pagination.default') }}
             </div>
 
         </div>

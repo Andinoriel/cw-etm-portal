@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
     @if ($errors->any())
@@ -39,4 +39,4 @@
             </button>
         </div>
     </form>
-@endsection --}}
+@endsection

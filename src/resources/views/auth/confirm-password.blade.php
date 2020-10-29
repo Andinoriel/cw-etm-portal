@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
     @if ($errors->any())
@@ -33,4 +33,4 @@
             </a>
         @endif
     </form>
-@endsection --}}
+@endsection

@@ -30,7 +30,7 @@
         </div>
         <div class="col-12 col-md-4 my-2">
             <div class="content">
-                <a href="">
+                <a href="{{ route('control-cathedra') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">

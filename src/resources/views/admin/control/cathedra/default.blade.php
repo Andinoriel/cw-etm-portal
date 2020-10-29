@@ -7,7 +7,7 @@
 <div class="container">
     <div class="text-center my-5">
         <h1 class="title">
-            Admin Panel — Subjects Control
+            Admin Panel — Cathedras Control
         </h1>
         <div class="d-flex flex-row justify-content-center double-color-line">
             <div></div>
@@ -26,11 +26,11 @@
             <div class="table-title mb-3">
                 <div class="d-flex flex-row justify-content-between align-items-center">
                     <div class="">
-                        <h2>Manage <b>Subjects</b></h2>
+                        <h2>Manage <b>Cathedras</b></h2>
                     </div>
                     <div class="">
-                        <a href="/admin/control/subject/create" class="btn btn-success">
-                            <span>Add New Subject</span>
+                        <a href="/admin/control/cathedra/create" class="btn btn-success">
+                            <span>Add New Cathedra</span>
                         </a>
                     </div>
                 </div>
@@ -40,18 +40,22 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Thumbnail</th>
+                        <th>Faculty</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($subjects as $subject)
+                    @foreach ($cathedras as $cathedra)
                     <tr>
-                        <td class="">{{ $subject->id }}</td>
-                        <td class="">{{ $subject->name }}</td>
-                        <td class="">
-                            <form action="{{ route('delete-subject', $subject->id) }}" method="post">
+                        <td>{{ $cathedra->id }}</td>
+                        <td>{{ $cathedra->name }}</td>
+                        <td>{{ $cathedra->thumbnail }}</td>
+                        <td>{{ $cathedra->Faculty->name }}</td>
+                        <td>
+                            <form action="{{ route('delete-cathedra', $cathedra->id) }}" method="post">
                                 @csrf
 
-                                <a href="/admin/control/subject/update-{{ $subject->id }}" class="btn btn-primary"
+                                <a href="/admin/control/cathedra/update-{{ $cathedra->id }}" class="btn btn-primary"
                                     role="button">Edit</a>
 
                                 @method('DELETE')
@@ -65,7 +69,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-center my-5">
-                {{ $subjects->withQueryString()->links('pagination.default') }}
+                {{ $cathedras->withQueryString()->links('pagination.default') }}
             </div>
 
         </div>
