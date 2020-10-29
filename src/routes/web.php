@@ -29,42 +29,53 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('', [AdminPanelController::class, 'index'])->name('admin');
 
     // FACULTY CONTROL
-    Route::get('control/faculty', [AdminPanelController::class, 'controlFaculty'])->name('control-faculty');
-    Route::get('control/faculty/create', [AdminPanelController::class, 'createFaculty']);
-    Route::get('control/faculty/update-{id}', [AdminPanelController::class, 'updateFaculty']);
+    Route::prefix('control/faculty')->group(function () {
+        Route::get('', [AdminPanelController::class, 'controlFaculty'])->name('control-faculty');
+        Route::get('create', [AdminPanelController::class, 'createFaculty']);
+        Route::get('update-{id}', [AdminPanelController::class, 'updateFaculty']);
 
-    Route::post('control/faculty/create', [FacultiesController::class, 'create'])->name('create-faculty');
-    Route::post('control/faculty/update-{id}', [FacultiesController::class, 'update'])->name('update-faculty');
-    Route::delete('control/faculty/delete-{id}', [FacultiesController::class, 'delete'])->name('delete-faculty');
-
+        Route::post('create', [FacultiesController::class, 'create'])->name('create-faculty');
+        Route::post('update-{id}', [FacultiesController::class, 'update'])->name('update-faculty');
+        Route::delete('delete-{id}', [FacultiesController::class, 'delete'])->name('delete-faculty');
+    });
     // CATHEDRA CONTROL
-    Route::get('control/cathedra', [AdminPanelController::class, 'controlCathedra'])->name('control-cathedra');
-    Route::get('control/cathedra/create', [AdminPanelController::class, 'createCathedra']);
-    Route::get('control/cathedra/update-{id}', [AdminPanelController::class, 'updateCathedra']);
+    Route::prefix('control/cathedra')->group(function () {
+        Route::get('', [AdminPanelController::class, 'controlCathedra'])->name('control-cathedra');
+        Route::get('create', [AdminPanelController::class, 'createCathedra']);
+        Route::get('update-{id}', [AdminPanelController::class, 'updateCathedra']);
 
-    Route::post('control/cathedra/create', [CathedrasController::class, 'create'])->name('create-cathedra');
-    Route::post('control/cathedra/update-{id}', [CathedrasController::class, 'update'])->name('update-cathedra');
-    Route::delete('control/cathedra/delete-{id}', [CathedrasController::class, 'delete'])->name('delete-cathedra');
+        Route::post('create', [CathedrasController::class, 'create'])->name('create-cathedra');
+        Route::post('update-{id}', [CathedrasController::class, 'update'])->name('update-cathedra');
+        Route::delete('delete-{id}', [CathedrasController::class, 'delete'])->name('delete-cathedra');
+    });
+    // TEACHER CONTROL
+    Route::prefix('control/teacher')->group(function () {
+        Route::get('', [AdminPanelController::class, 'controlTeacher'])->name('control-teacher');
+        Route::get('update-{id}', [AdminPanelController::class, 'updateTeacher']);
 
+        Route::post('update-{id}', [TeachersController::class, 'update'])->name('update-teacher');
+    });
     // SUBJECT CONTROL
-    Route::get('control/subject', [AdminPanelController::class, 'controlSubject'])->name('control-subject');
-    Route::get('control/subject/create', [AdminPanelController::class, 'createSubject']);
-    Route::get('control/subject/update-{id}', [AdminPanelController::class, 'updateSubject']);
+    Route::prefix('control/subject')->group(function () {
+        Route::get('', [AdminPanelController::class, 'controlSubject'])->name('control-subject');
+        Route::get('create', [AdminPanelController::class, 'createSubject']);
+        Route::get('update-{id}', [AdminPanelController::class, 'updateSubject']);
 
-    Route::post('control/subject/create', [SubjectsController::class, 'create'])->name('create-subject');
-    Route::post('control/subject/update-{id}', [SubjectsController::class, 'update'])->name('update-subject');
-    Route::delete('control/subject/delete-{id}', [SubjectsController::class, 'delete'])->name('delete-subject');
+        Route::post('create', [SubjectsController::class, 'create'])->name('create-subject');
+        Route::post('update-{id}', [SubjectsController::class, 'update'])->name('update-subject');
+        Route::delete('delete-{id}', [SubjectsController::class, 'delete'])->name('delete-subject');
+    });
 });
 
 
-Route::prefix('faculties')->group(function() {
+Route::prefix('faculties')->group(function () {
     Route::get('', [FacultiesController::class, 'index']);
     Route::get('faculty-{faculty}', [FacultiesController::class, 'show']);
     Route::get('faculty-{_}/cathedra-{cathedra}', [CathedrasController::class, 'show']);
     Route::get('faculty-{_1}/cathedra-{_2}/teacher-{teacher}', [TeachersController::class, 'show']);
 });
 
-Route::prefix('books')->group(function() {
+Route::prefix('books')->group(function () {
     Route::get('', [BooksController::class, 'index']);
     Route::get('by-teacher-{teacher}', [BooksController::class, 'showByTeacher']);
     Route::get('by-subject-{subject}', [BooksController::class, 'showBySubject']);

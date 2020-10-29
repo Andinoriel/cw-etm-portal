@@ -14,4 +14,32 @@ class TeachersController extends Controller
             'teacher' => $teacher
         ]);
     }
+
+    // public function create(Request $request)
+    // {
+    //     Cathedra::insert([
+    //         'name' => $request->name,
+    //         'thumbnail' => $request->thumbnail,
+    //         'faculty_id' => $request->faculty_id
+    //     ]);
+    //     return redirect('/admin/control/cathedra')->with('success', 'Cathedra created successfully.');
+    // }
+    public function update(Request $request, $id)
+    {
+        $teacher = Teacher::find($id);
+        $teacher->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'mid_name' => $request->mid_name,
+            'degree' => $request->degree,
+            'cathedra_id' => $request->cathedra_id
+        ]);
+        $teacher->save();
+        return redirect('/admin/control/teacher')->with('success', 'Teacher updated successfully');
+    }
+    // public function delete($id)
+    // {
+    //     Cathedra::find($id)->delete();
+    //     return redirect('/admin/control/cathedra')->with('success', 'Cathedra deleted successfully');
+    // }
 }

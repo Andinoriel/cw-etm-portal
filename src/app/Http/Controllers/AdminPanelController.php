@@ -16,6 +16,8 @@ class AdminPanelController extends Controller
         }
     }
 
+    #region Admin Panel Views
+    
     public function controlFaculty() 
     {
         if (Auth::user()->can('administrate')) {
@@ -44,7 +46,6 @@ class AdminPanelController extends Controller
             return abort(404);
         }
     }
-
     public function controlCathedra() 
     {
         if (Auth::user()->can('administrate')) {
@@ -105,4 +106,28 @@ class AdminPanelController extends Controller
             return abort(404);
         }
     }
+
+    public function controlTeacher() 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.teacher.default', [
+                'teachers' => \App\Models\Teacher::paginate(10),
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+    public function updateTeacher($id) 
+    {
+        if (Auth::user()->can('administrate')) {
+            return view('admin.control.teacher.update', [
+                'teacher' => \App\Models\Teacher::find($id),
+                'cathedras' => \App\Models\Cathedra::get()
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+
+    #endregion
 }

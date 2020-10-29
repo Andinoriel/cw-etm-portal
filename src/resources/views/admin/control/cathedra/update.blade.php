@@ -41,7 +41,7 @@
             <label for="faculty_id">Faculty</label>
             <select class="custom-select" id="faculty_id" name="faculty_id" required autofocus>
                 @foreach ($faculties as $faculty)
-                @if($cathedra->Faculty->id = $faculty->id)
+                @if($cathedra->Faculty->id === $faculty->id)
                     <option value="{{ $faculty->id }}" selected>{{ $faculty->name }}</option>
                 @else
                     <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
