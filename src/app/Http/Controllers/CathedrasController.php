@@ -22,7 +22,7 @@ class CathedrasController extends Controller
             'faculty_id' => $request->faculty_id
         ]);
 
-        return redirect('/admin/control/cathedras')->with('success', 'Cathedra created successfully.');
+        return redirect('/admin/manage/cathedras')->with('success', 'Cathedra created successfully.');
     }
     public function update(Request $request, $id)
     {
@@ -34,11 +34,11 @@ class CathedrasController extends Controller
         $cathedra->faculty_id = Faculty::find($request->faculty_id)->id;
         $cathedra->save();
         
-        return redirect('/admin/control/cathedras')->with('success', 'Cathedra updated successfully');
+        return redirect('/admin/manage/cathedras')->with('success', 'Cathedra updated successfully');
     }
     public function delete($id)
     {
         Cathedra::find($id)->delete();
-        return redirect('/admin/control/cathedras')->with('success', 'Cathedra deleted successfully');
+        return redirect('/admin/manage/cathedras')->with('success', 'Cathedra deleted successfully');
     }
 }

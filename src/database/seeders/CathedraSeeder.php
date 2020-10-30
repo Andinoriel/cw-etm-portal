@@ -14,6 +14,6 @@ class CathedraSeeder extends Seeder
      */
     public function run()
     {
-        Cathedra::factory()->count(4)->create();
+        Cathedra::factory()->count(70)->create();
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Faculty;
 use App\Models\Cathedra;
 use App\Models\Teacher;
+use App\Models\Invitation;
 
 class TeachersController extends Controller
 {
@@ -24,6 +25,13 @@ class TeachersController extends Controller
     //     ]);
     //     return redirect('/admin/control/cathedras')->with('success', 'Cathedra created successfully.');
     // }
+    public function generateInvitation(Request $request)
+    {
+        Invitation::create([
+            'invite_key' => $request->invitation
+        ]);
+        return redirect('/admin/manage/teachers')->with('success', 'Invitation created successfully');
+    }
     public function update(Request $request, $id)
     {
         $teacher = Teacher::find($id);
@@ -36,7 +44,7 @@ class TeachersController extends Controller
         $teacher->cathedra_id = Cathedra::find($request->cathedra_id)->id;
         $teacher->save();
 
-        return redirect('/admin/control/teachers')->with('success', 'Teacher updated successfully');
+        return redirect('/admin/manage/teachers')->with('success', 'Teacher updated successfully');
     }
     // public function delete($id)
     // {

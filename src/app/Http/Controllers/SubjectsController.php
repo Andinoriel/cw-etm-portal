@@ -13,7 +13,7 @@ class SubjectsController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect('/admin/control/subject')->with('success', 'Subject created successfully.');
+        return redirect('/admin/manage/subject')->with('success', 'Subject created successfully.');
     }
     public function update(Request $request, $id)
     {
@@ -21,11 +21,11 @@ class SubjectsController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect('/admin/control/subject')->with('success', 'Subject updated successfully');
+        return redirect('/admin/manage/subject')->with('success', 'Subject updated successfully');
     }
     public function delete($id)
     {
         Subject::find($id)->delete();
-        return redirect('/admin/control/subject')->with('success', 'Subject deleted successfully');
+        return redirect('/admin/manage/subject')->with('success', 'Subject deleted successfully');
     }
 }

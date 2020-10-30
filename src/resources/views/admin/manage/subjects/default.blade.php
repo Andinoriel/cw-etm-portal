@@ -26,7 +26,7 @@
             <div class="table-title mb-3">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="">
-                        <h2>Manage <b>Cathedras</b></h2>
+                        <h2>Manage <b>Subjects</b></h2>
                     </div>
                     <div class="my-3 my-md-0 search">
                         <form class="d-flex" action="{{ route('search-cathedra') }}" method="get" role="search">
@@ -45,26 +45,22 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-responsive-md table-striped table-hover">
+            <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Thumbnail</th>
-                        <th>Faculty</th>
                         <th>
                             <div>
-                                <a href="/admin/control/cathedras/create" class="btn btn-success">
+                                <a href="/admin/manage/subject/create" class="btn btn-success">
                                     <span>
-                                        <span>
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle"
-                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path fill-rule="evenodd"
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                        </span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path fill-rule="evenodd"
+                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg>
                                     </span>
                                 </a>
                             </div>
@@ -72,17 +68,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($cathedras as $cathedra)
+                    @foreach ($subjects as $subject)
                     <tr>
-                        <td>{{ $cathedra->id }}</td>
-                        <td>{{ $cathedra->name }}</td>
-                        <td>{{ $cathedra->thumbnail }}</td>
-                        <td>{{ $cathedra->Faculty->name }}</td>
-                        <td>
-                            <form action="{{ route('delete-cathedra', $cathedra->id) }}" method="post">
+                        <td class="">{{ $subject->id }}</td>
+                        <td class="">{{ $subject->name }}</td>
+                        <td class="">
+                            <form action="{{ route('delete-subject', $subject->id) }}" method="post">
                                 @csrf
 
-                                <a href="/admin/control/cathedras/update-{{ $cathedra->id }}" class="btn btn-primary"
+                                <a href="/admin/manage/subject/update-{{ $subject->id }}" class="btn btn-primary"
                                     role="button">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen"
                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +103,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-center my-5">
-                {{ $cathedras->withQueryString()->links('pagination.default') }}
+                {{ $subjects->withQueryString()->links('pagination.default') }}
             </div>
 
         </div>

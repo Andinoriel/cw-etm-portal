@@ -7,7 +7,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
-class PermissionsDemoSeeder extends Seeder
+class PermissionsSeeder extends Seeder
 {
     /**
      * Create the initial roles and permissions.

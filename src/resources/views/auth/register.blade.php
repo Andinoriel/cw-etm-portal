@@ -17,10 +17,6 @@
                     @csrf
 
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" placeholder="{{ __('Name') }}"
-                            value="{{ old('name') }}" required autofocus autocomplete="name" />
-                    </div>
-                    <div class="form-group">
                         <input type="email" class="form-control" name="email" placeholder="{{ __('Email') }}"
                             value="{{ old('email') }}" required />
                     </div>
@@ -31,6 +27,10 @@
                     <div class="form-group">
                         <input type="password" class="form-control" name="password_confirmation"
                             placeholder="{{ __('Confirm Password') }}" required autocomplete="new-password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="invite-key" placeholder="{{ __('Invite Key') }}"
+                            required autocomplete />
                     </div>
 
                     <div class="form-group text-center">

@@ -53,7 +53,7 @@
                         <th>Thumbnail</th>
                         <th>
                             <div>
-                                <a href="/admin/control/faculties/create" class="btn btn-success">
+                                <a href="/admin/manage/faculties/create" class="btn btn-success">
                                     <span>
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +78,7 @@
                             <form action="{{ route('delete-faculty', $faculty->id) }}" method="post">
                                 @csrf
 
-                                <a href="/admin/control/faculties/update-{{ $faculty->id }}" class="btn btn-primary"
+                                <a href="/admin/manage/faculties/update-{{ $faculty->id }}" class="btn btn-primary"
                                     role="button">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen"
                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">

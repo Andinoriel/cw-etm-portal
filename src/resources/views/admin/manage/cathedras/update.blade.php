@@ -16,31 +16,36 @@
     </div>
     @endif
 
-    <form action="{{ route('create-cathedra') }}" method="post">
+    <form action="{{ route('update-cathedra', $cathedra->id) }}" method="post">
         @csrf
         <div class="d-flex flex-row justify-content-between align-items-center">
             <div class="">
-                <h2>Add New <b>Cathedra</b></h2>
+                <h2>Edit <b>Cathedra</b></h2>
             </div>
             <div class="">
-                <a href="{{ route('control-cathedras') }}" class="btn btn-secondary"> Go Back </a>
+                <a href="{{ route('manage-cathedras') }}" class="btn btn-secondary"> Go Back </a>
             </div>
         </div>
 
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required autofocus>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                value="{{ $cathedra->name }}" required autofocus>
         </div>
         <div class="form-group">
             <label for="thumbnail">Thumbnail</label>
-            <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Thumbnail" required autofocus>
+            <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Thumbnail" required
+                value="{{ $cathedra->thumbnail }}" autofocus>
         </div>
         <div class="form-group">
             <label for="faculty_id">Faculty</label>
             <select class="custom-select" id="faculty_id" name="faculty_id" required autofocus>
-                <option selected>Choose...</option>
                 @foreach ($faculties as $faculty)
+                @if($cathedra->Faculty->id === $faculty->id)
+                    <option value="{{ $faculty->id }}" selected>{{ $faculty->name }}</option>
+                @else
                     <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+                @endif
                 @endforeach
             </select>
         </div>

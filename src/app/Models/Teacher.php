@@ -9,7 +9,7 @@ class Teacher extends Model
 {
     use HasFactory;
     public $timestamps = false;
-
+    
     protected $fillable = ['first_name', 'last_name', 'mid_name', 'degree', 'about'];
 
     public function cathedra() {

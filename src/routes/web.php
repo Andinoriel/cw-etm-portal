@@ -29,8 +29,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('', [AdminPanelController::class, 'index'])->name('admin');
 
     // FACULTY CONTROL
-    Route::prefix('control/faculties')->group(function () {
-        Route::get('', [AdminPanelController::class, 'controlFaculties'])->name('control-faculties');
+    Route::prefix('manage/faculties')->group(function () {
+        Route::get('', [AdminPanelController::class, 'manageFaculties'])->name('manage-faculties');
         Route::get('create', [AdminPanelController::class, 'createFaculty']);
         Route::get('update-{id}', [AdminPanelController::class, 'updateFaculty']);
 
@@ -41,8 +41,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('search', [AdminPanelController::class, 'searchFaculty'])->name('search-faculty');
     });
     // CATHEDRA CONTROL
-    Route::prefix('control/cathedras')->group(function () {
-        Route::get('', [AdminPanelController::class, 'controlCathedras'])->name('control-cathedras');
+    Route::prefix('manage/cathedras')->group(function () {
+        Route::get('', [AdminPanelController::class, 'manageCathedras'])->name('manage-cathedras');
         Route::get('create', [AdminPanelController::class, 'createCathedra']);
         Route::get('update-{id}', [AdminPanelController::class, 'updateCathedra']);
 
@@ -53,17 +53,19 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('search', [AdminPanelController::class, 'searchCathedra'])->name('search-cathedra');
     });
     // TEACHER CONTROL
-    Route::prefix('control/teachers')->group(function () {
-        Route::get('', [AdminPanelController::class, 'controlTeachers'])->name('control-teachers');
+    Route::prefix('manage/teachers')->group(function () {
+        Route::get('', [AdminPanelController::class, 'manageTeachers'])->name('manage-teachers');
+        Route::get('generate-invitation', [AdminPanelController::class, 'generateInvitation']);
         Route::get('update-{id}', [AdminPanelController::class, 'updateTeacher']);
 
+        Route::post('generate-invitation', [TeachersController::class, 'generateInvitation'])->name('generate-invitation');
         Route::post('update-{id}', [TeachersController::class, 'update'])->name('update-teacher');
 
         Route::get('search', [AdminPanelController::class, 'searchTeacher'])->name('search-teacher');
     });
     // SUBJECT CONTROL
-    Route::prefix('control/subjects')->group(function () {
-        Route::get('', [AdminPanelController::class, 'controlSubjects'])->name('control-subjects');
+    Route::prefix('manage/subjects')->group(function () {
+        Route::get('', [AdminPanelController::class, 'manageSubjects'])->name('manage-subjects');
         Route::get('create', [AdminPanelController::class, 'createSubject']);
         Route::get('update-{id}', [AdminPanelController::class, 'updateSubject']);
 

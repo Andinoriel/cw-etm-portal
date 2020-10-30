@@ -12,21 +12,21 @@ class BooksController extends Controller
     public function index()
     {
         return view('public.books', [
-            'books' => Book::paginate(6),
+            'books' => Book::paginate(10),
         ]);
     }
 
     public function showByTeacher(Teacher $teacher)
     {
         return view('public.books', [
-            'books' => $teacher->books()->paginate(6)
+            'books' => $teacher->books()->paginate(10)
         ]);
     }
 
     public function showBySubject(Subject $subject)
     {
         return view('public.books', [
-            'books' => $subject->books()->paginate(6)
+            'books' => $subject->books()->paginate(10)
         ]);
     }
 
@@ -43,7 +43,7 @@ class BooksController extends Controller
             'books' => Book::orderBy('updated_at', 'desc')
                 ->where('title', 'like', '%' . $request->search . '%')
                 ->orWhere('short_description', 'like', '%' . $request->search . '%')
-                ->paginate(6),
+                ->paginate(10),
             'query' => $request->search
         ]);
     }

@@ -22,13 +22,17 @@
 
 <body>
     <div class="wrapper-container d-flex flex-column min-vh-100">
-        @include('layouts.includes.header')
+        <header class="mb-2">
+            @include('layouts.includes.header')
+        </header>
 
-        <main class="my-auto">
+        <main class="mt-1 mb-auto">
             @yield('content')
         </main>
 
-        @include('layouts.includes.footer')
+        <footer class="mt-auto">
+            @include('layouts.includes.footer')
+        </footer>
     </div>
     <!-- /.wrapper-container -->
 

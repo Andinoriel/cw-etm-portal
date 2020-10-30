@@ -19,44 +19,44 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-faculties') }}">
+                <a href="{{ route('manage-faculties') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Control Faculty</span>
+                        <span class="roboto18 content-title">Manage Faculty</span>
                     </div>
                 </a>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-cathedras') }}">
+                <a href="{{ route('manage-cathedras') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Control Cathedra</span>
+                        <span class="roboto18 content-title">Manage Cathedra</span>
                     </div>
                 </a>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-teachers') }}">
+                <a href="{{ route('manage-teachers') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Control Teacher</span>
+                        <span class="roboto18 content-title">Manage Teacher</span>
                     </div>
                 </a>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-3 my-2">
             <div class="content">
-                <a href="{{ route('control-subjects') }}">
+                <a href="{{ route('manage-subjects') }}">
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Control Subject</span>
+                        <span class="roboto18 content-title">Manage Subject</span>
                     </div>
                 </a>
             </div>
@@ -65,19 +65,6 @@
     <div class="d-flex flex-row justify-content-center double-color-line my-4">
         <div></div>
         <div></div>
-    </div>
-    <div class="d-flex flex-column flex-md-row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-3 my-2">
-            <div class="content">
-                <a href="#">
-                    <div class="content-overlay"></div>
-                    <img class="content-image" src="http://placehold.it/350x200">
-                    <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Generate Invitation</span>
-                    </div>
-                </a>
-            </div>
-        </div>
     </div>
 </div>
 @endsection

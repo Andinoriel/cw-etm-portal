@@ -25,6 +25,12 @@
     @include('user.profile.update-password-form')
     @endif
 
+    @role('user-teacher')
+        
+    @else
+        
+    @endrole
+
     {{-- @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
         @include('profile.two-factor-authentication-form')
     @endif --}}

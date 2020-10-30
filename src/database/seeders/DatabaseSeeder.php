@@ -13,19 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Faculty::factory(15)->create();
-        \App\Models\Cathedra::factory(70)->create();
-        \App\Models\Teacher::factory(400)->create();
-        \App\Models\Subject::factory(900)->create();
-        \App\Models\Book::factory(1500)->create();
-
-        // $this->call(PermissionsDemoSeeder::class);
-
-        // $superadmin = \App\Models\User::factory()->create([
-        //     'name' => 'Super Admin',
-        //     'email' => 'superadmin@localhost',
-        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        // ]);
-        // $superadmin->assignRole('super-admin');
+        $this->call(FacultySeeder::class);
+        $this->call(CathedraSeeder::class);
+        $this->call(TeacherSeeder::class);
+        $this->call(SubjectSeeder::class);
+        $this->call(BookSeeder::class);
     }
 }
