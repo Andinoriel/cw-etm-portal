@@ -15,13 +15,15 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('mid_name');
-            $table->string('degree');
-            $table->text('about');
-            $table->string('thumbnail');
-            $table->foreignId('cathedra_id')->constrained()->onDelete('cascade');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('mid_name')->nullable();
+            $table->string('degree')->nullable();
+            $table->text('about')->nullable();
+            $table->string('image')->nullable();
+            $table->timestamp('registered_on')->nullable();
+            $table->foreignId('cathedra_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
 

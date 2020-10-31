@@ -44,6 +44,8 @@
                 @endforeach
             </select>
         </div>
+
+        <input type="hidden" name="redirect" value="admin/manage/cathedras">
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>

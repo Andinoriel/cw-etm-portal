@@ -42,21 +42,6 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
 
-    {{-- Login/Register redirect and erros show --}}
-    @if ($authLoginModal ?? '' === 'authLoginModal')
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#loginModal').modal('show')
-            })
-        </script>
-    @endif
-    @if ($authRegisterModal ?? '' === 'authRegisterModal')
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#registerModal').modal('show')
-            })
-        </script>
-    @endif
     @if ($errors->any())
         <script type="text/javascript">
             $(document).ready(function() {

@@ -22,10 +22,10 @@ class CathedraFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->sentence(3),
-            'thumbnail' => 'http://placehold.it/350x200',
-            'faculty_id' => $this->faker->randomElement(Faculty::get()->pluck('id')->toArray())
-        ];
+        // return [
+        //     'name' => $this->faker->sentence(3),
+        //     'thumbnail' => 'http://placehold.it/350x200',
+        //     'faculty_id' => $this->faker->randomElement(Faculty::get()->pluck('id')->toArray())
+        // ];
     }
 }

@@ -32,6 +32,8 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="Name"
                 value="{{ $subject->name }}" required autofocus>
         </div>
+
+        <input type="hidden" name="redirect" value="admin/manage/subjects">
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>

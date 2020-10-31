@@ -44,7 +44,7 @@ class TeachersController extends Controller
         $teacher->cathedra_id = Cathedra::find($request->cathedra_id)->id;
         $teacher->save();
 
-        return redirect('/admin/manage/teachers')->with('success', 'Teacher updated successfully');
+        return redirect($request->redirect)->with('success', 'Teacher updated successfully');
     }
     // public function delete($id)
     // {

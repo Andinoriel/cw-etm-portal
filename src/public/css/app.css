@@ -126,6 +126,43 @@ div.wrapper-container {
   transition: 0.3s;
 }
 
+.modal-content {
+  border: none;
+}
+
+.modal-content .nav-tabs a {
+  color: black;
+  text-decoration: none;
+}
+
+.modal-content .nav-tabs a:not(.active) {
+  background-color: #e6e6e6;
+}
+
+.modal-content .nav-tabs a.active {
+  cursor: default;
+}
+
+.modal-content .nav-tabs a.active:first-child {
+  border-top-left-radius: 0.3rem;
+}
+
+.modal-content .nav-tabs a.active:last-child {
+  border-top-right-radius: 0.3rem;
+}
+
+.modal-content .nav-tabs a:first-child:not(.active):hover {
+  background-color: #ff8c01;
+  border-top-left-radius: 0.3rem;
+  transition: 0.3s;
+}
+
+.modal-content .nav-tabs a:last-child:hover:not(.active) {
+  background-color: #ff8c01;
+  border-top-right-radius: 0.3rem;
+  transition: 0.3s;
+}
+
 /*#endregion Header*/
 
 /*#region Footer*/

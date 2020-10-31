@@ -132,6 +132,48 @@ div.wrapper-container {
     }
 }
 
+.modal-content {
+    border: none;
+
+    & .nav-tabs {
+        a {
+            color: black;
+            text-decoration: none;
+
+            &:not(.active) {
+                background-color: darken(#fff, 10%);
+            }
+
+            &.active {
+                cursor: default;
+
+                &:first-child {
+                    border-top-left-radius: .3rem;
+                }
+
+                &:last-child {
+                    border-top-right-radius: .3rem;
+                }
+            }
+        }
+
+        a:first-child:not(.active) {
+
+            &:hover {
+                background-color: #ff8c01;
+                border-top-left-radius: .3rem;
+                transition: .3s;
+            }
+        }
+
+        a:last-child:hover:not(.active) {
+            background-color: #ff8c01;
+            border-top-right-radius: .3rem;
+            transition: .3s;
+        }
+    }
+}
+
 /*#endregion Header*/
 
 /*#region Footer*/

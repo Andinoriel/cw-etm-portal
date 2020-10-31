@@ -7,6 +7,9 @@ use App\Http\Controllers\CathedrasController;
 use App\Http\Controllers\TeachersController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\SubjectsController;
+use App\Http\Controllers\StudentsController;
+
+use App\Http\Controllers\UserProfileController;
 
 use App\Http\Controllers\AdminPanelController;
 
@@ -25,10 +28,10 @@ use App\Http\Controllers\AdminPanelController;
  * Admin Panel Routing
  */
 
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware(['auth', 'role:super-admin'])->prefix('admin')->group(function () {
     Route::get('', [AdminPanelController::class, 'index'])->name('admin');
 
-    // FACULTY CONTROL
+    // Faculties Control
     Route::prefix('manage/faculties')->group(function () {
         Route::get('', [AdminPanelController::class, 'manageFaculties'])->name('manage-faculties');
         Route::get('create', [AdminPanelController::class, 'createFaculty']);
@@ -40,7 +43,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
         Route::get('search', [AdminPanelController::class, 'searchFaculty'])->name('search-faculty');
     });
-    // CATHEDRA CONTROL
+    // Cathedras Control
     Route::prefix('manage/cathedras')->group(function () {
         Route::get('', [AdminPanelController::class, 'manageCathedras'])->name('manage-cathedras');
         Route::get('create', [AdminPanelController::class, 'createCathedra']);
@@ -52,7 +55,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
         Route::get('search', [AdminPanelController::class, 'searchCathedra'])->name('search-cathedra');
     });
-    // TEACHER CONTROL
+    // Teachers Control
     Route::prefix('manage/teachers')->group(function () {
         Route::get('', [AdminPanelController::class, 'manageTeachers'])->name('manage-teachers');
         Route::get('generate-invitation', [AdminPanelController::class, 'generateInvitation']);
@@ -63,7 +66,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
         Route::get('search', [AdminPanelController::class, 'searchTeacher'])->name('search-teacher');
     });
-    // SUBJECT CONTROL
+    // Subjects Control
     Route::prefix('manage/subjects')->group(function () {
         Route::get('', [AdminPanelController::class, 'manageSubjects'])->name('manage-subjects');
         Route::get('create', [AdminPanelController::class, 'createSubject']);
@@ -75,9 +78,41 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
         Route::get('search', [AdminPanelController::class, 'searchSubject'])->name('search-subject');
     });
+    // Students Control
+    Route::prefix('manage/students')->group(function () {
+        Route::get('', [AdminPanelController::class, 'manageStudents'])->name('manage-students');
+        Route::get('create', [AdminPanelController::class, 'createStudent']);
+        Route::get('update-{id}', [AdminPanelController::class, 'updateStudent']);
+
+        Route::post('create', [StudentsController::class, 'create'])->name('create-student');
+        Route::post('update-{id}', [StudentsController::class, 'update'])->name('update-student');
+        Route::delete('delete-{id}', [StudentsController::class, 'delete'])->name('delete-student');
+
+        Route::get('search', [AdminPanelController::class, 'searchStudent'])->name('search-student');
+    });
+    // Users Control
+    Route::prefix('manage/users')->group(function () {
+        Route::get('', [AdminPanelController::class, 'manageUsers'])->name('manage-users');
+        Route::get('search', [AdminPanelController::class, 'searchUsers'])->name('search-user');
+    });
+});
+
+/*
+ * Profile Page Routing
+ */ 
+Route::middleware('auth')->prefix('profile')->group(function () {
+    Route::get('', [UserProfileController::class, 'index'])->name('profile');
+
+    Route::post('update-{id}', [TeachersController::class, 'update'])
+        ->name('update-profile')->middleware('role:user-teacher');
+    Route::post('upload-photo', [UserProfileController::class, 'uploadPhoto'])
+        ->middleware('role:user-teacher')->name('upload-photo');
 });
 
 
+/*
+ * Public Pages Routing
+ */
 Route::prefix('faculties')->group(function () {
     Route::get('', [FacultiesController::class, 'index']);
     Route::get('faculty-{faculty}', [FacultiesController::class, 'show']);
@@ -92,7 +127,3 @@ Route::prefix('books')->group(function () {
     Route::get('book-{book}', [BooksController::class, 'book']);
     Route::get('search', [BooksController::class, 'search']);
 });
-
-
-
-Route::view('home', 'user.default')->middleware('auth'); // so by so now

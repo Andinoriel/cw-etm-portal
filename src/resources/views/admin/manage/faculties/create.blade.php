@@ -35,6 +35,8 @@
             <label for="thumbnail">Thumbnail</label>
             <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Thumbnail" required autofocus>
         </div>
+        
+        <input type="hidden" name="redirect" value="admin/manage/faculties">
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>

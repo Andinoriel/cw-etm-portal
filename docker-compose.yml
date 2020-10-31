@@ -40,10 +40,10 @@ services:
     networks:
       - app-network
 
-  php-composer:
+  composer:
     build:
-      context: ./docker/php-composer
-    container_name: php-composer
+      context: ./docker/composer
+    container_name: composer
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html

@@ -22,14 +22,14 @@ class TeacherFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'mid_name' => $this->faker->name(),
-            'degree' => $this->faker->sentence(2),
-            'about' => $this->faker->sentence(50),
-            'thumbnail' => 'http://placehold.it/350x200',
-            'cathedra_id' => $this->faker->randomElement(Cathedra::get()->pluck('id')->toArray())
-        ];
+        // return [
+        //     'first_name' => $this->faker->firstName(),
+        //     'last_name' => $this->faker->lastName(),
+        //     'mid_name' => $this->faker->name(),
+        //     'degree' => $this->faker->sentence(2),
+        //     'about' => $this->faker->sentence(50),
+        //     'thumbnail' => 'http://placehold.it/350x200',
+        //     'cathedra_id' => $this->faker->randomElement(Cathedra::get()->pluck('id')->toArray())
+        // ];
     }
 }

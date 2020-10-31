@@ -3,7 +3,6 @@
 
 @include('errors.show')
 
-
 <div class="container-fluid top-header">
     <div class="container">
         <div class="d-flex flex-row justify-content-between align-items-center pt-3 pb-3 pt-lg-2 pb-lg-2">
@@ -35,7 +34,7 @@
                 @endif
                 @else {{-- !guest --}}
                 <div class="link-default">
-                    <a class="btn">{{ Auth::user()->email }}</a>
+                    <a href="{{ route('profile') }}" class="btn">{{ Auth::user()->email }}</a>
                 </div>
                 @can('administrate')
                 <div class="m-2">

@@ -20,121 +20,97 @@ class AdminPanelController extends Controller
 
     public function manageFaculties()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.faculties.default', [
-                'faculties' => \App\Models\Faculty::paginate(10),
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.faculties.default', [
+            'faculties' => \App\Models\Faculty::paginate(10),
+        ]);
     }
     public function createFaculty()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.faculties.create');
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.faculties.create');
     }
     public function updateFaculty($id)
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.faculties.update', [
-                'faculty' => \App\Models\Faculty::find($id)
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.faculties.update', [
+            'faculty' => \App\Models\Faculty::find($id)
+        ]);
     }
     public function manageCathedras()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.cathedras.default', [
-                'cathedras' => \App\Models\Cathedra::paginate(10),
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.cathedras.default', [
+            'cathedras' => \App\Models\Cathedra::paginate(10),
+        ]);
     }
     public function createCathedra()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.cathedras.create', [
-                'faculties' => \App\Models\Faculty::get()
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.cathedras.create', [
+            'faculties' => \App\Models\Faculty::get()
+        ]);
     }
     public function updateCathedra($id)
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.cathedras.update', [
-                'cathedra' => \App\Models\Cathedra::find($id),
-                'faculties' => \App\Models\Faculty::get()
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.cathedras.update', [
+            'cathedra' => \App\Models\Cathedra::find($id),
+            'faculties' => \App\Models\Faculty::get()
+        ]);
     }
 
     public function manageTeachers()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.teachers.default', [
-                'teachers' => \App\Models\Teacher::paginate(10),
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.teachers.default', [
+            'teachers' => \App\Models\Teacher::paginate(10),
+        ]);
     }
     public function generateInvitation()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.teachers.generate-invitation');
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.teachers.generate-invitation');
     }
     public function updateTeacher($id)
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.teachers.update', [
-                'teacher' => \App\Models\Teacher::find($id),
-                'cathedras' => \App\Models\Cathedra::get()
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.teachers.update', [
+            'teacher' => \App\Models\Teacher::find($id),
+            'cathedras' => \App\Models\Cathedra::get()
+        ]);
     }
 
     public function manageSubjects()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.subjects.default', [
-                'subjects' => \App\Models\Subject::paginate(10),
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.subjects.default', [
+            'subjects' => \App\Models\Subject::paginate(10),
+        ]);
     }
     public function createSubject()
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.subjects.create');
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.subjects.create');
     }
     public function updateSubject($id)
     {
-        if (Auth::user()->can('administrate')) {
-            return view('admin.manage.subjects.update', [
-                'subject' => \App\Models\Subject::find($id)
-            ]);
-        } else {
-            return abort(404);
-        }
+        return view('admin.manage.subjects.update', [
+            'subject' => \App\Models\Subject::find($id)
+        ]);
+    }
+
+    public function manageStudents()
+    {
+        return view('admin.manage.students.default', [
+            'students' => \App\Models\Student::paginate(10),
+        ]);
+    }
+    public function createStudent()
+    {
+        return view('admin.manage.students.create');
+    }
+    public function updateStudent($id)
+    {
+        return view('admin.manage.students.update', [
+            'student' => \App\Models\Student::find($id)
+        ]);
+    }
+
+    public function manageUsers()
+    {
+        return view('admin.manage.users.default', [
+            'users' => \App\Models\User::paginate(10),
+        ]);
     }
 
     #endregion
@@ -170,6 +146,28 @@ class AdminPanelController extends Controller
     {
         return view('admin.manage.subjects.default', [
             'subjects' => \App\Models\Subject::where('name', 'like', '%' . $request->search . '%')->paginate(10),
+            'query' => $request->search
+        ]);
+    }
+    public function searchStudent(Request $request)
+    {
+        return view('admin.manage.students.default', [
+            'students' => \App\Models\Student::where('first_name', 'like', '%' . $request->search . '%')
+                ->orWhere('first_name', 'like', '%' . $request->search . '%')
+                ->orWhere('last_name', 'like', '%' . $request->search . '%')
+                ->orWhere('mid_name', 'like', '%' . $request->search . '%')
+                ->orWhere('group', $request->search)
+                ->orWhere('card_code', $request->search)
+                ->paginate(10),
+            'query' => $request->search
+        ]);
+    }
+    public function searchUsers(Request $request)
+    {
+        return view('admin.manage.users.default', [
+            'users' => \App\Models\User::where('email', 'like', '%' . $request->search . '%')
+                ->orWhere('id', $request->search)
+                ->paginate(10),
             'query' => $request->search
         ]);
     }

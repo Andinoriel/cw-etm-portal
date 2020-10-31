@@ -23,7 +23,7 @@
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Manage Faculty</span>
+                        <span class="roboto18 content-title">Manage Faculties</span>
                     </div>
                 </a>
             </div>
@@ -45,7 +45,7 @@
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Manage Teacher</span>
+                        <span class="roboto18 content-title">Manage Teachers</span>
                     </div>
                 </a>
             </div>
@@ -56,15 +56,33 @@
                     <div class="content-overlay"></div>
                     <img class="content-image" src="http://placehold.it/350x200">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Manage Subject</span>
+                        <span class="roboto18 content-title">Manage Subjects</span>
                     </div>
                 </a>
             </div>
         </div>
-    </div>
-    <div class="d-flex flex-row justify-content-center double-color-line my-4">
-        <div></div>
-        <div></div>
+        <div class="col-12 col-md-6 col-lg-3 my-2">
+            <div class="content">
+                <a href="{{ route('manage-students') }}">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="http://placehold.it/350x200">
+                    <div class="content-details move-bottom">
+                        <span class="roboto18 content-title">Manage Students</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 my-2">
+            <div class="content">
+                <a href="{{ route('manage-users') }}">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="http://placehold.it/350x200">
+                    <div class="content-details move-bottom">
+                        <span class="roboto18 content-title">Manage Users</span>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
