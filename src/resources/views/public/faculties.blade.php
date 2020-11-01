@@ -20,7 +20,7 @@
             <div class="content">
                 <a href="/faculties/faculty-{{ $faculty->id }}">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src={{ $faculty->thumbnail }}>
+                    <img class="content-image" src={{ Storage::exists($faculty->thumbnail) ? Storage::url($faculty->thumbnail) : '/static/placeholder-ins.jpg' }}>
                     <div class="content-details move-bottom">
                         <span class="roboto18 content-title">{{ $faculty->name }}</span>
                     </div>

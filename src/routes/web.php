@@ -138,3 +138,8 @@ Route::prefix('books')->group(function () {
     Route::get('book-{book}', [BooksController::class, 'book']);
     Route::get('search', [BooksController::class, 'search']);
 });
+
+/*
+ * Main Page
+ */
+Route::get('/', function () { return view('index'); });

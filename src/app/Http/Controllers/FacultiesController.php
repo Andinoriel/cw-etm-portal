@@ -26,7 +26,7 @@ class FacultiesController extends Controller
     {
         Faculty::insert([
             'name' => $request->name,
-            'thumbnail' => $request->thumbnail
+            'thumbnail' => $request->hasFile('thumbnail') ? $request->file('thumbnail')->store('thumbnails') : ''
         ]);
 
         return redirect($request->redirect)->with('success', 'Faculty created successfully.');
@@ -35,7 +35,7 @@ class FacultiesController extends Controller
     {
         Faculty::find($id)->update([
             'name' => $request->name,
-            'thumbnail' => $request->thumbnail
+            'thumbnail' => $request->hasFile('thumbnail') ? $request->file('thumbnail')->store('thumbnails') : ''
         ]);
 
         return redirect($request->redirect)->with('success', 'Faculty updated successfully');

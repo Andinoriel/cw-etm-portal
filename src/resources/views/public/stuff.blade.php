@@ -17,7 +17,9 @@
     <div class="row mt-5">
         @foreach($cathedra->teachers as $teacher)
         <div class="teacher-block col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column align-items-center">
-            <img class="content-image" src={{ Storage::url($teacher->image) }}>
+            <img class="content-image"
+                src={{ Storage::exists($teacher->image) ? Storage::url($teacher->image) : '/static/placeholder-portrait.png' }}
+                alt="person">
             <a class="mt-3"
                 href="/faculties/faculty-{{ $cathedra->Faculty->id }}/cathedra-{{ $cathedra->id }}/teacher-{{ $teacher->id }}">
                 <h4 class="text-center">{{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }}

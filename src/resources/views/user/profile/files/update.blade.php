@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - Personal - Files @endsection
+@section('title') TMD - Profile - Update File @endsection
 @section('description') NULL @endsection
 
 @section('content')

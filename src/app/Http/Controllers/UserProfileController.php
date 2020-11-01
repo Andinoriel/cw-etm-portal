@@ -22,7 +22,9 @@ class UserProfileController extends Controller
                 'student' => \App\Models\Student::where('user_id', Auth::user()->id)->first(),
             ]);
         }
-        return view('user.default');
+        if (Auth::user()->hasRole('super-admin')) {
+            return view('admin.default');
+        }        
     }
 
     public function uploadPhoto(Request $request)

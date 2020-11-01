@@ -11,7 +11,7 @@
                 TMD of Pryazovskyi State Technical University
             </div>
             <div
-                class="d-flex flex-column flex-sm-row justify-content-around align-items-center align-items-sm-center top-header-contacts">
+                class="d-flex flex-row justify-content-around align-items-center align-items-sm-center top-header-contacts">
                 @guest
                 @if (Route::has('login'))
                 <button type="button" class="m-2 btn btn-light" data-toggle="modal" data-target="#loginModal">
@@ -34,31 +34,43 @@
                 </button>
                 @endif
                 @else {{-- !guest --}}
-                <div class="link-default">
-                    <a href="{{ route('profile') }}" class="btn">{{ Auth::user()->email }}</a>
+                <div class="d-flex flex-row">
+                    @unlessrole('super-admin')
+                    <div class="m-2">
+                        <a href="{{ route('profile') }}" class="btn btn-light">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                        </a>
+                    </div>
+                    @endunlessrole
+                    @can('administrate')
+                    <div class="m-2">
+                        <a href="{{ route('admin') }}" class="btn btn-light">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-wrench" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019L13 11l-.471.242-.529.026-.287.445-.445.287-.026.529L11 13l.242.471.026.529.445.287.287.445.529.026L13 15l.471-.242.529-.026.287-.445.445-.287.026-.529L15 13l-.242-.471-.026-.529-.445-.287-.287-.445-.529-.026z" />
+                            </svg>
+                        </a>
+                    </div>
+                    @endcan
+                    <div class="m-2">
+                        <a class="btn btn-light" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-closed-fill"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none" hidden>
+                        @csrf
+                    </form>
                 </div>
-                @can('administrate')
-                <div class="m-2">
-                    <a href="{{ route('admin') }}" class="btn btn-light">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-wrench" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019L13 11l-.471.242-.529.026-.287.445-.445.287-.026.529L11 13l.242.471.026.529.445.287.287.445.529.026L13 15l.471-.242.529-.026.287-.445.445-.287.026-.529L15 13l-.242-.471-.026-.529-.445-.287-.287-.445-.529-.026z" />
-                        </svg>
-                    </a>
-                </div>
-                @endcan
-                <a class="btn btn-light m-2" href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-closed-fill" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                    </svg>
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none" hidden>
-                    @csrf
-                </form>
                 @endguest
             </div>
         </div>

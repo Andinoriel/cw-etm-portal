@@ -13,7 +13,7 @@
                     <div>
                         @switch(session('status'))
                         @case('profile-information-updated')
-                            <span>Profile updated successfully!</span>
+                            <span>Email updated successfully!</span>
                         @break
 
                         @case('password-updated')

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - Admin Panel @endsection
+@section('title') TMD - Admin Panel - Update Faculty @endsection
 @section('description') NULL @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
     </div>
     @endif
 
-    <form action="{{ route('update-faculty', $faculty->id) }}" method="post">
+    <form action="{{ route('update-faculty', $faculty->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="d-flex flex-row justify-content-between align-items-center">
             <div class="">
@@ -32,10 +32,10 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="Name"
                 value="{{ $faculty->name }}" required autofocus>
         </div>
-        <div class="form-group">
-            <label for="thumbnail">Thumbnail</label>
-            <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Thumbnail" required
-                value="{{ $faculty->thumbnail }}" autofocus>
+        <div class="form-group upload-thumbnail">
+            Thumbnail:
+            <label class="btn btn-secondary" for="thumbnail">Browse...</label>
+            <input class="w-0" id="thumbnail" name="thumbnail" type="file" accept=".png, .jpg, .jpeg">
         </div>
         
         <input type="hidden" name="redirect" value="admin/manage/faculties">

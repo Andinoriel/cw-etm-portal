@@ -1123,12 +1123,14 @@ div.wrapper-container {
   transition: 0.3s;
 }
 
-.upload-photo label {
+.upload-photo label,
+.upload-thumbnail label {
   cursor: pointer;
   margin: 0;
 }
 
-.upload-photo input {
+.upload-photo input,
+.upload-thumbnail input {
   opacity: 0;
   position: absolute;
   left: -22px;

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') Book @endsection
+@section('title') TMD - {{ $book->title }} @endsection
 @section('description') NULL @endsection
 
 @section('content')
@@ -16,7 +16,8 @@
 <div class="container mb-5">
     <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center h-100">
         <div class="col-12 col-lg-4">
-            <img class="book-image" src={{ Storage::url($book->thumbnail) }} alt="book">
+            <img class="book-image"
+                src={{ Storage::exists($book->thumbnail) ? Storage::url($book->thumbnail) : 'static/' }} alt="book">
         </div>
         <div
             class="book-info d-flex flex-column justify-content-around align-item-center text-justify mt-4 mt-lg-0 px-5">

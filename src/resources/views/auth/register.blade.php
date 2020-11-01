@@ -3,17 +3,17 @@
         <div class="modal-content">
             <div class="nav nav-tabs" role="tablist">
                 <a class="nav-item w-50 p-3 text-center active" data-toggle="tab" href="#tab1" role="tab">
-                    Register for Teachers
+                    For <b>Teachers</b>
                 </a>
                 <a class="nav-item w-50 p-3 text-center" data-toggle="tab" href="#tab2" role="tab">
-                    Register for Students
+                    For <b>Students</b>
                 </a>
             </div>
             <div class="tab-content">
                 <div class="tab-pane fade in show active" id="tab1" role="tabpanel">
 
                     <div class="modal-header d-flex justify-content-center">
-                        <h5 class="modal-title roboto24" id="register">Welcome</h5>
+                        <h5 class="modal-title roboto24" id="register">Register</h5>
                     </div>
                     <div class="modal-body register-form">
                         <form method="POST" action="{{ route('register') }}">

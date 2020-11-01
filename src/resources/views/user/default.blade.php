@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - Personal @endsection
+@section('title') TMD - Profile @endsection
 @section('description') NULL @endsection
 
 @section('modals')
@@ -43,7 +43,9 @@
         @role('user-teacher')
         <div class="d-flex flex-column flex-lg-row">
             <div class="col-12 col-lg-4">
-                <img class="stuff-image" src={{ Storage::url($teacher->image) }} alt="person">
+                <img class="stuff-image"
+                    src={{ Storage::exists($teacher->image) ? Storage::url($teacher->image) : 'static/placeholder-portrait.png' }}
+                    alt="person">
             </div>
             <div class="col-12 col-lg-8 mt-5 mt-lg-0">
                 <div class="card mb-3">
@@ -84,11 +86,11 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row d-flex align-items-center">
-                            <div class="col-sm-3">
+                        <div class="row align-items-center">
+                            <div class="col-3">
                                 <h6 class="mb-0">My Files</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary">
+                            <div class="col-9 text-secondary">
                                 <a class="btn btn-danger" href="{{ route('manage-files') }}">
                                     Show
                                 </a>
@@ -140,7 +142,9 @@
         @role('user-default')
         <div class="d-flex flex-column flex-lg-row">
             <div class="col-12 col-lg-4">
-                <img class="stuff-image" src="" alt="person">
+                <img class="stuff-image"
+                    src="{{ Storage::exists($student->image) ? Storage::url($student->image) : 'static/placeholder-portrait.png' }}"
+                    alt="person">
             </div>
             <div class="col-12 col-lg-8 mt-5 mt-lg-0">
                 <div class="card mb-3">
