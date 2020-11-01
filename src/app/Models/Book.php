@@ -9,13 +9,25 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'short_description', 'description', 'thumbnail'];
+    protected $fillable = [
+        'title', 
+        'short_description', 
+        'description', 
+        'teacher_id', 
+        'subject_id', 
+        'thumbnail', 
+        'url_download',
+        'created_at', 
+        'updated_at'
+    ];
 
-    public function teacher() {
+    public function teacher()
+    {
         return $this->belongsTo('App\Models\Teacher');
     }
 
-    public function subject() {
+    public function subject()
+    {
         return $this->belongsTo('App\Models\Subject');
     }
 }

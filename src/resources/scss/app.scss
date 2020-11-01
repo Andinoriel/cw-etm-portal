@@ -1094,5 +1094,20 @@ $color-wood-2: #410A09;
     }
 }
 
+.upload-photo {
+
+    & label {
+        cursor: pointer;
+        margin: 0;
+    }
+    & input {
+        opacity: 0;
+        position: absolute;
+        left: -22px;
+        z-index: -1;
+    }
+}
+
+
 
 /*#endregion Pages*/

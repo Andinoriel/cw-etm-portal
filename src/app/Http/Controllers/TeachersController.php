@@ -40,6 +40,7 @@ class TeachersController extends Controller
             'last_name' => $request->last_name,
             'mid_name' => $request->mid_name,
             'degree' => $request->degree,
+            'about' => $request->about
         ]);
         $teacher->cathedra_id = Cathedra::find($request->cathedra_id)->id;
         $teacher->save();

@@ -13,7 +13,8 @@ class UserProfileController extends Controller
         if (Auth::user()->hasRole('user-teacher')) {
             return view('user.default', [
                 'teacher' => \App\Models\Teacher::where('user_id', Auth::user()->id)->first(),
-                'cathedras' => \App\Models\Cathedra::get()
+                'cathedras' => \App\Models\Cathedra::get(),
+                'subjects' => \App\Models\Subject::get()
             ]);
         }
         if (Auth::user()->hasRole('user-default')) {
@@ -26,16 +27,53 @@ class UserProfileController extends Controller
 
     public function uploadPhoto(Request $request)
     {
-        if (Auth::user()->hasRole('user-teacher')) {
+        if ($request->hasFile('photo')) {
             $teacher = \App\Models\Teacher::where('user_id', Auth::user()->id)->first();
-            
-            if (Storage::exists($teacher->thumbnail))
-                Storage::delete($teacher->thumbnail);
-            
-            $teacher->thumbnail = $request->file('photo')->store('avatars');
+
+            if (Storage::exists($teacher->image))
+                Storage::delete($teacher->image);
+
+            $teacher->image = $request->file('photo')->store('avatars');
             $teacher->save();
 
-            return back()->with('success', 'File uploaded successfully!');
+            return back()->with('success', 'Photo uploaded successfully!');
+        } else {
+            return back()->withErrors('No photo selected');
         }
+    }
+
+
+    public function manageFiles()
+    {
+        return view('user.profile.files.default', [
+            'books' => \App\Models\Book::where(
+                'teacher_id',
+                \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id
+            )->paginate(10),
+        ]);
+    }
+    public function createFile()
+    {
+        return view('user.profile.files.create', [
+            'subjects' => \App\Models\Subject::get()
+        ]);
+    }
+    public function updateFile($id)
+    {
+        return view('user.profile.files.update', [
+            'book' => \App\Models\Book::find($id),
+            'subjects' => \App\Models\Subject::get()
+        ]);
+    }
+
+    public function searchFile(Request $request)
+    {
+        return view('user.profile.files.default', [
+            'books' => \App\Models\Book::where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('short_description', 'like', '%' . $request->search . '%')
+                ->orWhere('description', 'like', '%' . $request->search . '%')
+                ->paginate(10),
+            'query' => $request->search
+        ]);
     }
 }

@@ -1123,5 +1123,17 @@ div.wrapper-container {
   transition: 0.3s;
 }
 
+.upload-photo label {
+  cursor: pointer;
+  margin: 0;
+}
+
+.upload-photo input {
+  opacity: 0;
+  position: absolute;
+  left: -22px;
+  z-index: -1;
+}
+
 /*#endregion Pages*/
 

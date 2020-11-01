@@ -58,6 +58,12 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label for="name">About</label>
+            <input type="text" class="form-control" id="about" name="about" placeholder="About"
+                value="{{ $teacher->about }}" required autofocus>
+        </div>
+
         <input type="hidden" name="redirect" value="admin/manage/teachers">
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>

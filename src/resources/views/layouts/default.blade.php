@@ -21,6 +21,8 @@
 </head>
 
 <body>
+    @yield('modals')
+
     <div class="wrapper-container d-flex flex-column min-vh-100">
         <header class="mb-2">
             @include('layouts.includes.header')

@@ -34,6 +34,7 @@ class AdminPanelController extends Controller
             'faculty' => \App\Models\Faculty::find($id)
         ]);
     }
+    
     public function manageCathedras()
     {
         return view('admin.manage.cathedras.default', [

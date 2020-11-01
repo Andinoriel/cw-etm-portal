@@ -7,6 +7,9 @@ use App\Models\Teacher;
 use App\Models\Book;
 use App\Models\Subject;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 class BooksController extends Controller
 {
     public function index()
@@ -19,14 +22,16 @@ class BooksController extends Controller
     public function showByTeacher(Teacher $teacher)
     {
         return view('public.books', [
-            'books' => $teacher->books()->paginate(10)
+            'books' => $teacher->books()->paginate(10),
+            'teacher' => $teacher
         ]);
     }
 
     public function showBySubject(Subject $subject)
     {
         return view('public.books', [
-            'books' => $subject->books()->paginate(10)
+            'books' => $subject->books()->paginate(10),
+            'subject' => $subject
         ]);
     }
 
@@ -46,5 +51,53 @@ class BooksController extends Controller
                 ->paginate(10),
             'query' => $request->search
         ]);
+    }
+
+
+    public function create(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            \App\Models\Book::insert([
+                'title' => $request->title,
+                'short_description' => $request->short_description,
+                'description' => $request->description,
+                'created_at' => now(),
+                'teacher_id' => \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id,
+                'subject_id' => \App\Models\Subject::find($request->subject_id)->id,
+                'url_download' => $request->file('file')->store('files')
+            ]);
+            
+            return redirect($request->redirect)->with('success', 'File uploaded successfully!');
+        } else {
+            return redirect($request->redirect)->withErrors('No file selected');
+        }
+    }
+    public function update(Request $request, $id)
+    {
+
+        $book = \App\Models\Book::find($id);
+        $book->update([
+            'title' => $request->title,
+            'short_description' => $request->short_description,
+            'description' => $request->description,
+            'updated_at' => now()
+        ]);
+
+        $book->teacher_id = \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id;
+        $book->subject_id = \App\Models\Subject::find($request->subject_id)->id;
+
+        if ($request->hasFile('file')) {
+            if (Storage::exists($book->url_download))
+                Storage::delete($book->url_download);
+            $book->url_download = $request->file('file')->store('files');
+        }
+
+        $book->save();
+        return redirect($request->redirect)->with('success', 'File uploaded successfully!');
+    }
+    public function delete($id)
+    {
+        Book::find($id)->delete();
+        return back()->with('success', 'Book deleted successfully');
     }
 }

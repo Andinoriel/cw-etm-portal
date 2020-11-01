@@ -3,12 +3,12 @@
 @section('title')
 @switch(Request::url())
 @case(Request::is('books/by-teacher-*'))
-{{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
+{{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }}
 — Files
 @break
 
 @case(Request::is('books/by-subject-*'))
-{{ $books[0]->Subject->name }} — Files
+{{ $subject->name }} — Files
 @break
 
 @case(Request::is('books/search*'))
@@ -27,12 +27,12 @@ All Files
         <h1 class="title">
             @switch(Request::url())
             @case(Request::is('books/by-teacher-*'))
-            {{ $books[0]->Teacher->last_name }} {{ $books[0]->Teacher->first_name }} {{ $books[0]->Teacher->mid_name }}
+            {{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }}
             — Files
             @break
 
             @case(Request::is('books/by-subject-*'))
-            {{ $books[0]->Subject->name }} — Files
+            {{ $subject->name }} — Files
             @break
 
             @case(Request::is('books/search*'))

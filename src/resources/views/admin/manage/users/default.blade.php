@@ -50,7 +50,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Email</th>
-                        <th>Email verified at</th>
                         <th>Created at</th>
                         <th>Updated at</th>
                     </tr>
@@ -60,7 +59,6 @@
                     <tr>
                         <td>{{ $user->id ?? '' }}</td>
                         <td>{{ $user->email ?? '' }}</td>
-                        <td>{{ $user->email_verified_at ?? '' }}</td>
                         <td>{{ $user->created_at ?? '' }}</td>
                         <td>{{ $user->updated_at ?? '' }}</td>
                     </tr>

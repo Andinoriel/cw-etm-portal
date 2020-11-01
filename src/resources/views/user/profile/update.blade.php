@@ -1,8 +1,8 @@
-<div class="modal fade" id="updateTeacherModal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+<div class="modal fade" id="updateTeacherModal" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="login">Update</h5>
+                <h5 class="modal-title" id="update">Update</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,14 +17,14 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="name">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name"
-                            placeholder="First Name" value="{{ $teacher->first_name ?? '' }}" required autofocus>
-                    </div>
-                    <div class="form-group">
                         <label for="name">Last Name</label>
                         <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
                             value="{{ $teacher->last_name ?? '' }}" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name"
+                            placeholder="First Name" value="{{ $teacher->first_name ?? '' }}" required autofocus>
                     </div>
                     <div class="form-group">
                         <label for="name">Mid Name</label>
@@ -44,10 +44,15 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="about">About</label>
+                        <textarea type="text" class="form-control" id="about" name="about" placeholder="About" rows="7"
+                            required autofocus>{{ $teacher->about ?? '' }}</textarea>
+                    </div>
 
                     <input type="hidden" name="redirect" value="profile">
                     <div class="form-group text-center">
-                        <button type="submit" class="submit" value="Login">
+                        <button type="submit" class="btn btn-success submit" value="Login">
                             Submit
                         </button>
                     </div>

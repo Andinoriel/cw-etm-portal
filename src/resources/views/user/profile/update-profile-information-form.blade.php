@@ -9,7 +9,7 @@
 
     <div>
         <button type="submit">
-            {{ __('Update Profile') }}
+            {{ __('Update Email') }}
         </button>
     </div>
 </form>

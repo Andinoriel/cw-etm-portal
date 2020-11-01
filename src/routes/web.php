@@ -99,7 +99,7 @@ Route::middleware(['auth', 'role:super-admin'])->prefix('admin')->group(function
 
 /*
  * Profile Page Routing
- */ 
+ */
 Route::middleware('auth')->prefix('profile')->group(function () {
     Route::get('', [UserProfileController::class, 'index'])->name('profile');
 
@@ -107,8 +107,19 @@ Route::middleware('auth')->prefix('profile')->group(function () {
         ->name('update-profile')->middleware('role:user-teacher');
     Route::post('upload-photo', [UserProfileController::class, 'uploadPhoto'])
         ->middleware('role:user-teacher')->name('upload-photo');
-});
 
+    Route::middleware('can:upload publication')->prefix('files')->group(function () {
+        Route::get('', [UserProfileController::class, 'manageFiles'])->name('manage-files');
+        Route::get('create', [UserProfileController::class, 'createFile']);
+        Route::get('update-{id}', [UserProfileController::class, 'updateFile']);
+
+        Route::post('create', [BooksController::class, 'create'])->name('create-book');
+        Route::post('update-{id}', [BooksController::class, 'update'])->name('update-book');
+        Route::delete('delete-{id}', [BooksController::class, 'delete'])->name('delete-book');
+
+        Route::get('search', [UserProfileController::class, 'searchFile'])->name('search-file');
+    });
+});
 
 /*
  * Public Pages Routing
