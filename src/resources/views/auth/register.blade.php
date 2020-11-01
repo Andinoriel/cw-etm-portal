@@ -16,12 +16,6 @@
                         <h5 class="modal-title roboto24" id="register">Welcome</h5>
                     </div>
                     <div class="modal-body register-form">
-                        @if (session('status'))
-                        <div>
-                            {{ session('status') }}
-                        </div>
-                        @endif
-
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -58,12 +52,6 @@
                         <h5 class="modal-title roboto24" id="register">Welcome</h5>
                     </div>
                     <div class="modal-body register-form">
-                        @if (session('status'))
-                        <div>
-                            {{ session('status') }}
-                        </div>
-                        @endif
-
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <input type="hidden" name="registerType" value="registerStudent">

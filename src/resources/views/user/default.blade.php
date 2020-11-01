@@ -9,12 +9,16 @@
 @endrole
 @endsection
 
+@if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
+@include('user.profile.update-password-form')
+@endif
+
+@if(Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updateProfileInformation()))
+@include('user.profile.update-profile-information-form')
+@endif
+
 @section('content')
 <div class="d-flex flex-column align-items-center">
-    @if (session('status'))
-    <div>{{ session('status') }}</div>
-    @endif
-
     <div class="container">
         <div class="text-center my-5">
             <h1 class="title">
@@ -91,17 +95,37 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                            <form class="upload-photo" action="{{ route('upload-photo') }}" method="post"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <label class="btn btn-secondary" for="upload-photo">Browse...</label>
-                                <input class="w-0" id="upload-photo" type="file" name="photo" accept=".png, .jpg, .jpeg"
-                                    required>
-                                <button type="submit" class="btn btn-primary" value="Login">
-                                    Update Avatar
-                                </button>
-                            </form>
+                        <div class="row d-flex align-items-center">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Avatar</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary mt-3">
+                                <form class="upload-photo" action="{{ route('upload-photo') }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <label class="btn btn-secondary" for="upload-photo">Browse...</label>
+                                    <input class="w-0" id="upload-photo" type="file" name="photo"
+                                        accept=".png, .jpg, .jpeg" required>
+                                    <button type="submit" class="btn btn-primary" value="Login">
+                                        Update Avatar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row d-flex justify-content-start">
+                            @if(Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updateProfileInformation()))
+                            <button type="button" class="m-2 btn btn-warning" data-toggle="modal"
+                                data-target="#updateEmailModal">
+                                Update Email
+                            </button>
+                            @endif
+                            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
+                            <button type="button" class="m-2 btn btn-warning" data-toggle="modal"
+                                data-target="#updatePasswordModal">
+                                Update Password
+                            </button>
+                            @endif
                             <button type="button" class="m-2 btn btn-success" data-toggle="modal"
                                 data-target="#updateTeacherModal">
                                 Update Personal Info
@@ -148,16 +172,23 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row">
+                        <div class="row d-flex justify-content-start">
                             @if(Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updateProfileInformation()))
-                            @include('user.profile.update-profile-information-form')
+                            <button type="button" class="m-2 btn btn-warning" data-toggle="modal"
+                                data-target="#updateEmailModal">
+                                Update Email
+                            </button>
                             @endif
-                        </div>
-                        <hr>
-                        <div class="row">
                             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                            @include('user.profile.update-password-form')
+                            <button type="button" class="m-2 btn btn-warning" data-toggle="modal"
+                                data-target="#updatePasswordModal">
+                                Update Password
+                            </button>
                             @endif
+                            <button type="button" class="m-2 btn btn-success" data-toggle="modal"
+                                data-target="#updateTeacherModal">
+                                Update Personal Info
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -165,16 +196,5 @@
         </div>
         @endrole
     </div>
-
-    {{-- @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
-    @include('profile.two-factor-authentication-form')
-    @endif
-    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updateProfileInformation()))
-    @include('user.profile.update-profile-information-form')
-    @endif
-
-    @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-    @include('user.profile.update-password-form')
-    @endif --}}
 </div>
 @endsection

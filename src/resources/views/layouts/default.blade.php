@@ -44,12 +44,19 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
 
-    @if ($errors->any())
-        <script type="text/javascript">
-            $(document).ready(function() {
+    @if (count($errors->getBags())) {{-- || $errors->any() --}}
+    <script type="text/javascript">
+        $(document).ready(function() {
                 $('#errorsModal').modal('show')
             })
-        </script>
+    </script>
+    @endif
+    @if (session('status'))
+    <script type="text/javascript">
+        $(document).ready(function() {
+                $('#statusModal').modal('show')
+            })
+    </script>
     @endif
     {{--  --}}
 

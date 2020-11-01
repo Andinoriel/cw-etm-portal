@@ -2,14 +2,14 @@
     <div class="modal-dialog" role="errors">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Whoops! Something went wrong.</h5>
+                <h5 class="modal-title" id="errors">Whoops! Something went wrong.</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="">
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                     <div>
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -17,6 +17,20 @@
                             @endforeach
                         </ul>
                     </div>
+                    @endif --}}
+                    @if (count($errors->getBags()))
+                    <div>
+                        <ul>
+                            @foreach ($errors->getBags() as $bag)
+                                @foreach ($bag->getMessages() as $messages)
+                                    @foreach ($messages as $message)
+                                        <li>{{ $message }}</li>
+                                    @endforeach
+                                @endforeach
+                            @endforeach
+                        </ul>
+                    </div>
+                    
                     @endif
                 </div>
             </div>

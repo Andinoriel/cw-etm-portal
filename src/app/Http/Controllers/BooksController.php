@@ -63,10 +63,14 @@ class BooksController extends Controller
                 'description' => $request->description,
                 'created_at' => now(),
                 'teacher_id' => \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id,
-                'subject_id' => \App\Models\Subject::find($request->subject_id)->id,
-                'url_download' => $request->file('file')->store('files')
+                'subject_id' => empty($request->subject)
+                    ? \App\Models\Subject::find($request->subject_id)->id
+                    : \App\Models\Subject::create(['name' => $request->subject])->id,
+                'url_download' => $request->file('file')->store(
+                    'files/' . \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id
+                )
             ]);
-            
+
             return redirect($request->redirect)->with('success', 'File uploaded successfully!');
         } else {
             return redirect($request->redirect)->withErrors('No file selected');

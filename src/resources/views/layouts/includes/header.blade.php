@@ -2,6 +2,7 @@
 @include('auth.register')
 
 @include('errors.show')
+@include('errors.status')
 
 <div class="container-fluid top-header">
     <div class="container">
@@ -90,7 +91,7 @@
                             Faculties
                         </a>
                     </li>
-                    <li class="nav-item dropdown mx-md-1">
+                    {{-- <li class="nav-item dropdown mx-md-1">
                         <a class="nav-link dropdown-toggle" href="#" id="enrollee" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Element
@@ -101,7 +102,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Action 3</a>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

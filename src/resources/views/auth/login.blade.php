@@ -8,11 +8,6 @@
                 </button>
             </div>
             <div class="modal-body login-form">
-                @if (session('status'))
-                <div>
-                    {{ session('status') }}
-                </div>
-                @endif
                 <form method="post" action={{ route('login') }}>
                     @csrf
                     

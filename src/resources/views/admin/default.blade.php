@@ -17,7 +17,7 @@
 </div>
 <div class="container my-5">
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-3 my-2">
+        <div class="col-12 col-md-6 col-lg-4 my-2">
             <div class="content">
                 <a href="{{ route('manage-faculties') }}">
                     <div class="content-overlay"></div>
@@ -28,7 +28,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 my-2">
+        <div class="col-12 col-md-6 col-lg-4 my-2">
             <div class="content">
                 <a href="{{ route('manage-cathedras') }}">
                     <div class="content-overlay"></div>
@@ -39,7 +39,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 my-2">
+        <div class="col-12 col-md-6 col-lg-4 my-2">
             <div class="content">
                 <a href="{{ route('manage-teachers') }}">
                     <div class="content-overlay"></div>
@@ -50,7 +50,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 my-2">
+        <div class="col-12 col-md-6 col-lg-4 my-2">
             <div class="content">
                 <a href="{{ route('manage-subjects') }}">
                     <div class="content-overlay"></div>
@@ -61,7 +61,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 my-2">
+        <div class="col-12 col-md-6 col-lg-4 my-2">
             <div class="content">
                 <a href="{{ route('manage-students') }}">
                     <div class="content-overlay"></div>
@@ -72,7 +72,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 my-2">
+        <div class="col-12 col-md-6 col-lg-4 my-2">
             <div class="content">
                 <a href="{{ route('manage-users') }}">
                     <div class="content-overlay"></div>

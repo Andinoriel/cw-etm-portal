@@ -52,7 +52,7 @@
                         <th>Name</th>
                         <th>
                             <div>
-                                <a href="/admin/manage/subject/create" class="btn btn-success">
+                                <a href="/admin/manage/subjects/create" class="btn btn-success">
                                     <span>
                                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle"
                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -43,13 +43,20 @@
             <input type="text" class="form-control" id="description" name="description"
                 placeholder="Description" required autofocus>
         </div>
+        
         <div class="form-group">
-            <label for="subject_id">Subject</label>
-            <select class="custom-select" id="subject_id" name="subject_id" required autofocus>
+            <label for="subject_id">Choose subject...</label>
+            <select class="custom-select" id="subject_id" name="subject_id" autofocus>
                 @foreach ($subjects as $subject)
                 <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                 @endforeach
             </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Or add manually</label>
+            <input type="text" class="form-control" id="subject" name="subject"
+                placeholder="Subject" autofocus>
         </div>
         <div class="form-group">
             <input class="w-0" id="upload-file" type="file" name="file"
@@ -64,4 +71,18 @@
         </div>
     </form>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#subject').change(function () {
+            if ($(this).val().length > 0) {
+                $('#subject_id').prop('disabled', true)
+            } else {
+                $('#subject_id').prop('disabled', false)
+            }
+        })
+    })
+</script>
 @endsection

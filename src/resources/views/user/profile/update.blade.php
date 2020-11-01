@@ -8,11 +8,6 @@
                 </button>
             </div>
             <div class="modal-body">
-                @if (session('status'))
-                <div>
-                    {{ session('status') }}
-                </div>
-                @endif
                 <form action="{{ route('update-profile', $teacher->id) }}" method="post">
                     @csrf
 
