@@ -61,7 +61,7 @@
             <div class="content">
                 <a href="{{ route('manage-faculties') }}">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="http://placehold.it/350x200">
+                    <img class="content-image" src="/static/placeholder_a-faculties.jpg">
                     <div class="content-details move-bottom">
                         <span class="roboto18 content-title">Manage Faculties</span>
                     </div>
@@ -72,9 +72,9 @@
             <div class="content">
                 <a href="{{ route('manage-cathedras') }}">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="http://placehold.it/350x200">
+                    <img class="content-image" src="/static/placeholder_a-cathedras.jpg">
                     <div class="content-details move-bottom">
-                        <span class="roboto18 content-title">Manage Cathedra</span>
+                        <span class="roboto18 content-title">Manage Cathedras</span>
                     </div>
                 </a>
             </div>
@@ -83,7 +83,7 @@
             <div class="content">
                 <a href="{{ route('manage-teachers') }}">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="http://placehold.it/350x200">
+                    <img class="content-image" src="/static/placeholder_a-teacher.jpg">
                     <div class="content-details move-bottom">
                         <span class="roboto18 content-title">Manage Teachers</span>
                     </div>
@@ -94,7 +94,7 @@
             <div class="content">
                 <a href="{{ route('manage-subjects') }}">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="http://placehold.it/350x200">
+                    <img class="content-image" src="/static/placeholder_a-subjects.jpg">
                     <div class="content-details move-bottom">
                         <span class="roboto18 content-title">Manage Subjects</span>
                     </div>
@@ -105,7 +105,7 @@
             <div class="content">
                 <a href="{{ route('manage-students') }}">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="http://placehold.it/350x200">
+                    <img class="content-image" src="/static/placeholder_a-students.jpg">
                     <div class="content-details move-bottom">
                         <span class="roboto18 content-title">Manage Students</span>
                     </div>
@@ -116,7 +116,7 @@
             <div class="content">
                 <a href="{{ route('manage-users') }}">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="http://placehold.it/350x200">
+                    <img class="content-image" src="/static/placeholder_a-users.jpg">
                     <div class="content-details move-bottom">
                         <span class="roboto18 content-title">Manage Users</span>
                     </div>
