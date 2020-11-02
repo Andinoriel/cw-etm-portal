@@ -31,7 +31,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Save') }}
+                        {{ __('Submit') }}
                     </button>
                 </form>
             </div>

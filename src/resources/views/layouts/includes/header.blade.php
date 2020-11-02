@@ -34,6 +34,9 @@
                 </button>
                 @endif
                 @else {{-- !guest --}}
+                <div class="roboto16 mr-2 d-none d-md-block">
+                    {{ Auth::user()->email }}
+                </div>                
                 <div class="d-flex flex-row">
                     @unlessrole('super-admin')
                     <div class="m-2">

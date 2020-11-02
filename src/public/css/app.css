@@ -186,6 +186,12 @@ div.wrapper-container {
   color: #ababab;
 }
 
+.btn-round {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 /*#endregion Footer*/
 
 /*#region 404*/

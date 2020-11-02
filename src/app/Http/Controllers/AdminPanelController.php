@@ -59,6 +59,7 @@ class AdminPanelController extends Controller
     {
         return view('admin.manage.teachers.default', [
             'teachers' => \App\Models\Teacher::paginate(10),
+            'invitations' => \App\Models\Invitation::get()
         ]);
     }
     public function generateInvitation()

@@ -23,7 +23,7 @@ class UserProfileController extends Controller
             ]);
         }
         if (Auth::user()->hasRole('super-admin')) {
-            return view('admin.default');
+            return redirect('admin');
         }        
     }
 

@@ -16,15 +16,6 @@ class TeachersController extends Controller
         ]);
     }
 
-    // public function create(Request $request)
-    // {
-    //     Cathedra::insert([
-    //         'name' => $request->name,
-    //         'thumbnail' => $request->thumbnail,
-    //         'faculty_id' => $request->faculty_id
-    //     ]);
-    //     return redirect('/admin/control/cathedras')->with('success', 'Cathedra created successfully.');
-    // }
     public function generateInvitation(Request $request)
     {
         Invitation::create([
@@ -47,9 +38,4 @@ class TeachersController extends Controller
 
         return redirect($request->redirect)->with('success', 'Teacher updated successfully');
     }
-    // public function delete($id)
-    // {
-    //     Cathedra::find($id)->delete();
-    //     return redirect('/admin/control/cathedras')->with('success', 'Cathedra deleted successfully');
-    // }
 }

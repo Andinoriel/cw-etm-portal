@@ -9,13 +9,15 @@
 @endrole
 @endsection
 
+@section('modals')
 @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
 @include('user.profile.update-password-form')
 @endif
 
 @if(Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updateProfileInformation()))
 @include('user.profile.update-profile-information-form')
-@endif
+@endif 
+@endsection
 
 @section('content')
 <div class="d-flex flex-column align-items-center">
@@ -180,13 +182,13 @@
                             @if(Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updateProfileInformation()))
                             <button type="button" class="m-2 btn btn-warning" data-toggle="modal"
                                 data-target="#updateEmailModal">
-                                Update Email
+                                Change Email
                             </button>
                             @endif
                             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                             <button type="button" class="m-2 btn btn-warning" data-toggle="modal"
                                 data-target="#updatePasswordModal">
-                                Update Password
+                                Change Password
                             </button>
                             @endif
                             <button type="button" class="m-2 btn btn-success" data-toggle="modal"
