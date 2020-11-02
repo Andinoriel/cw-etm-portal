@@ -63,7 +63,7 @@ All Files
                         <div class="d-flex flex-column flex-wrap flex-md-row">
                             <span class="mr-3">
                                 Updated at:
-                                <span class="color-cont">{{ $book->updated_at }}</span>
+                                <span class="color-cont">{{ $book->updated_at ?? $book->created_at }}</span>
                             </span>
                             @if(!Request::is('books/by-teacher-*'))
                             <span class="ml-md-3 ml-0">

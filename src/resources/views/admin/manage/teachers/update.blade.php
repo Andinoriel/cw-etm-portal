@@ -61,7 +61,7 @@
         <div class="form-group">
             <label for="name">About</label>
             <input type="text" class="form-control" id="about" name="about" placeholder="About"
-                value="{{ $teacher->about }}" required autofocus>
+                value="{{ $teacher->about }}">
         </div>
 
         <input type="hidden" name="redirect" value="admin/manage/teachers">

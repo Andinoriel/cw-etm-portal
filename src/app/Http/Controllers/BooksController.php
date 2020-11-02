@@ -57,15 +57,25 @@ class BooksController extends Controller
     public function create(Request $request)
     {
         if ($request->hasFile('file')) {
+            $subject_id = null;
+
+            if (empty($request->subject)) {
+                $subject_id = \App\Models\Subject::find($request->subject_id)->id;
+            } else {
+                if (empty(\App\Models\Subject::where('name', $request->subject)->get())) {
+                    $subject_id = \App\Models\Subject::create(['name' => $request->subject])->id;
+                } else {
+                    $subject_id = \App\Models\Subject::where('name', $request->subject)->first()->id;
+                }
+            }
+
             \App\Models\Book::insert([
                 'title' => $request->title,
                 'short_description' => $request->short_description,
                 'description' => $request->description,
                 'created_at' => now(),
                 'teacher_id' => \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id,
-                'subject_id' => empty($request->subject)
-                    ? \App\Models\Subject::find($request->subject_id)->id
-                    : \App\Models\Subject::create(['name' => $request->subject])->id,
+                'subject_id' => $subject_id,
                 'url_download' => $request->file('file')->store(
                     'files/' . \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id
                 )
@@ -78,7 +88,6 @@ class BooksController extends Controller
     }
     public function update(Request $request, $id)
     {
-
         $book = \App\Models\Book::find($id);
         $book->update([
             'title' => $request->title,
@@ -97,11 +106,11 @@ class BooksController extends Controller
         }
 
         $book->save();
-        return redirect($request->redirect)->with('success', 'File uploaded successfully!');
+        return redirect($request->redirect)->with('success', 'File updated successfully!');
     }
     public function delete($id)
     {
         Book::find($id)->delete();
-        return back()->with('success', 'Book deleted successfully');
+        return back()->with('success', 'File deleted successfully');
     }
 }

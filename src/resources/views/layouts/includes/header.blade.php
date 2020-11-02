@@ -34,7 +34,7 @@
                 </button>
                 @endif
                 @else {{-- !guest --}}
-                <div class="roboto16 mr-2 d-none d-md-block">
+                <div class="roboto16 mr-2 d-none d-md-block color-cont">
                     {{ Auth::user()->email }}
                 </div>                
                 <div class="d-flex flex-row">

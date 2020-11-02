@@ -17,7 +17,7 @@
     <div class="d-flex flex-column flex-lg-row justify-content-around align-items-center h-100">
         <div class="col-12 col-lg-4">
             <img class="book-image"
-                src={{ Storage::exists($book->thumbnail) ? Storage::url($book->thumbnail) : 'static/' }} alt="book">
+                src={{ Storage::exists($book->thumbnail) ? Storage::url($book->thumbnail) : '/static/placeholder-book.png' }} alt="book">
         </div>
         <div
             class="book-info d-flex flex-column justify-content-around align-item-center text-justify mt-4 mt-lg-0 px-5">
@@ -36,6 +36,7 @@
                     {{ $book->Subject->name }}
                 </a>
             </span>
+
             <span class="mt-5 book-info-long">{{ $book->description }}</span>
             @can('download publication')
             <div class="mt-5 d-flex flex-row justify-content-center align-items-center mb-3">

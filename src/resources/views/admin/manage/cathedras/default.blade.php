@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-responsive-md table-striped table-hover">
+            <table class="table table-responsive-lg table-striped table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -76,13 +76,16 @@
                     <tr>
                         <td>{{ $cathedra->id }}</td>
                         <td>{{ $cathedra->name }}</td>
-                        <td>{{ $cathedra->thumbnail }}</td>
+                        <td>
+                            <a target="_blank" href="{{ Storage::url($cathedra->thumbnail) }}">{{ $cathedra->thumbnail }}</a>
+                        </td>
                         <td>{{ $cathedra->Faculty->name }}</td>
                         <td>
                             <form action="{{ route('delete-cathedra', $cathedra->id) }}" method="post">
                                 @csrf
 
-                                <a href="/admin/manage/cathedras/update-{{ $cathedra->id }}" class="btn btn-primary"
+                                <div class="d-flex flex-row">
+                                <a href="/admin/manage/cathedras/update-{{ $cathedra->id }}" class="mx-1 btn btn-primary"
                                     role="button">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen"
                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +95,7 @@
                                 </a>
 
                                 @method('DELETE')
-                                <button class="btn btn-danger" type="submit" title="delete">
+                                <button class="mx-1 btn btn-danger" type="submit" title="delete">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash2"
                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -102,6 +105,7 @@
                                             d="M12.9 3c-.18-.14-.497-.307-.974-.466C10.967 2.214 9.58 2 8 2s-2.968.215-3.926.534c-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466zM8 5c3.314 0 6-.895 6-2s-2.686-2-6-2-6 .895-6 2 2.686 2 6 2z" />
                                     </svg>
                                 </button>
+                                </div>
                             </form>
                         </td>
                     </tr>

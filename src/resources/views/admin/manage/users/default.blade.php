@@ -45,13 +45,13 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-responsive-md table-striped table-hover">
+            <table class="table table-responsive table-striped table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Email</th>
-                        <th>Created at</th>
-                        <th>Updated at</th>
+                        <th>Created&nbsp;at</th>
+                        <th>Updated&nbsp;at</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -41,8 +41,8 @@
                     </div>
                     <div class="form-group">
                         <label for="about">About</label>
-                        <textarea type="text" class="form-control" id="about" name="about" placeholder="About" rows="7"
-                            required autofocus>{{ $teacher->about ?? '' }}</textarea>
+                        <textarea type="text" class="form-control" id="about" name="about" placeholder="About"
+                            rows="6">{{ $teacher->about ?? '' }}</textarea>
                     </div>
 
                     <input type="hidden" name="redirect" value="profile">

@@ -4,7 +4,7 @@
 @section('description') NULL @endsection
 
 @section('content')
-<div class="container col-12 col-md-3">
+<div class="container mb-5 col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
     @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -30,8 +30,7 @@
 
         <div class="form-group">
             <label for="name">Title</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Title" required
-                autofocus>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title" required autofocus>
         </div>
         <div class="form-group">
             <label for="name">Short Description</label>
@@ -39,11 +38,10 @@
                 placeholder="Short Description" required autofocus>
         </div>
         <div class="form-group">
-            <label for="name">Description</label>
-            <input type="text" class="form-control" id="description" name="description"
-                placeholder="Description" required autofocus>
+            <label for="description">Description</label>
+            <textarea type="text" class="form-control" id="description" name="description" placeholder="Description"
+                rows="6" required autofocus></textarea>
         </div>
-        
         <div class="form-group">
             <label for="subject_id">Choose subject...</label>
             <select class="custom-select" id="subject_id" name="subject_id" autofocus>
@@ -52,11 +50,9 @@
                 @endforeach
             </select>
         </div>
-        
         <div class="form-group">
             <label for="name">Or add manually</label>
-            <input type="text" class="form-control" id="subject" name="subject"
-                placeholder="Subject" autofocus>
+            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" autofocus>
         </div>
         <div class="form-group">
             <input class="w-0" id="upload-file" type="file" name="file"
