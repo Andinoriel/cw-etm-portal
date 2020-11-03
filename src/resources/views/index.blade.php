@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-8">
-            <img class="main-image" src="https://photos.wikimapia.org/p/00/03/14/83/09_full.jpg" alt="">
+            <img class="main-image" src="/static/pstu.jpg" alt="">
         </div>
     </div>
 </div>
