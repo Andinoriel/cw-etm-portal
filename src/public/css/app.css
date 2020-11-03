@@ -163,6 +163,19 @@ div.wrapper-container {
   transition: 0.3s;
 }
 
+.dropdown .dropdown-menu {
+  transition: all 0.3s;
+  max-height: 0;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.dropdown.show .dropdown-menu {
+  max-height: 200px;
+  opacity: 1;
+}
+
 /*#endregion Header*/
 
 /*#region Footer*/
@@ -862,10 +875,23 @@ div.wrapper-container {
   overflow: hidden;
 }
 
+.content:hover svg {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.content svg {
+  background: orange;
+  border-radius: 1.1em;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  transition: 0.3s;
+}
+
 .content .content-overlay {
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
-  height: 99%;
   width: 100%;
   left: 0;
   top: 0;
@@ -875,7 +901,7 @@ div.wrapper-container {
   transition: all 0.4s ease-in-out 0s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .content .content-overlay {
     opacity: 1;
   }
@@ -934,7 +960,7 @@ div.wrapper-container {
   top: 100%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .move-bottom {
     top: 50%;
   }
@@ -1141,6 +1167,15 @@ div.wrapper-container {
   position: absolute;
   left: -22px;
   z-index: -1;
+}
+
+.main-image {
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  height: 400x;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /*#endregion Pages*/

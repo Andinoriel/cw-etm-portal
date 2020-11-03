@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - Profile @endsection
+@section('title') ETM - Profile @endsection
 @section('description') NULL @endsection
 
 @section('modals')

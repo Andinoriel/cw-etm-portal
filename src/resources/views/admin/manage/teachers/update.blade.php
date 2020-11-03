@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - Admin Panel - Update Teacher @endsection
+@section('title') ETM - Admin Panel - Update Teacher @endsection
 @section('description') NULL @endsection
 
 @section('content')

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - {{ $book->title }} @endsection
+@section('title') ETM - {{ $book->title }} @endsection
 @section('description') NULL @endsection
 
 @section('content')

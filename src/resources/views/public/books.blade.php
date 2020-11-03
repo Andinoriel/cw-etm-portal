@@ -113,12 +113,12 @@ All Files
                     </button>
                 </form>
             </div>
-            <div class="d-none d-lg-flex flex-column mt-5 ml-0 ml-lg-4 undefined-block">
+            {{-- <div class="d-none d-lg-flex flex-column mt-5 ml-0 ml-lg-4 undefined-block">
                 <h3>Something</h3>
                 <a href="#">Something</a>
                 <a href="#">Something</a>
                 <a href="#">Something</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

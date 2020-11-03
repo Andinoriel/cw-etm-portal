@@ -1,6 +1,5 @@
 <div class="footer-container">
     <div class="container d-flex flex-column justify-content-center align-items-center py-4">
-        {{-- <div class="py-1 roboto18" style="color: rgb(85, 85, 85);">In God We Trust</div> --}}
         <div class="d-flex flex-row justify-content-around align-items-center my-3">
             <a href="https://pstu.edu/uk/" class="mx-1 btn btn-light btn-round">
                 <svg width="1em" height="1em" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512"
@@ -21,7 +20,9 @@
                 </svg>
             </a>
         </div>
-        <div class="copyright py-1 roboto18" style="color: rgb(216, 216, 216);">We Appreciate Your Dedication</div>
-        <div class="copyright py-1 roboto18" style="color: rgb(85, 85, 85);">&copy; 2020 PSTU — Mariupol</div>
+        <div class="copyright py-1 roboto18 text-center" style="color: rgb(216, 216, 216);">
+            Scientific and Technical Library of Pryazovskyi State Technical University
+        </div>
+        <div class="copyright py-1 roboto18 text-center" style="color: rgb(90, 90, 90);">&copy; 2020 PSTU — Mariupol</div>
     </div>
 </div>

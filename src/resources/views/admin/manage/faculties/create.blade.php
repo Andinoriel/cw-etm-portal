@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - Admin Panel - Create Faculty @endsection
+@section('title') ETM - Admin Panel - Create Faculty @endsection
 @section('description') NULL @endsection
 
 @section('content')

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - {{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }} @endsection
+@section('title') ETM - {{ $teacher->last_name }} {{ $teacher->first_name }} {{ $teacher->mid_name }} @endsection
 @section('description') NULL @endsection
 
 @section('content')

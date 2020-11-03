@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title') TMD - Admin Panel @endsection
+@section('title') ETM - Admin Panel @endsection
 @section('description') NULL @endsection
 
 @section('modals')
@@ -66,6 +66,13 @@
                         <span class="roboto18 content-title">Manage Faculties</span>
                     </div>
                 </a>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path fill-rule="evenodd"
+                        d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
+                </svg>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 my-2">
@@ -77,6 +84,13 @@
                         <span class="roboto18 content-title">Manage Cathedras</span>
                     </div>
                 </a>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path fill-rule="evenodd"
+                        d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
+                </svg>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 my-2">
@@ -88,6 +102,13 @@
                         <span class="roboto18 content-title">Manage Teachers</span>
                     </div>
                 </a>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path fill-rule="evenodd"
+                        d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
+                </svg>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 my-2">
@@ -99,6 +120,13 @@
                         <span class="roboto18 content-title">Manage Subjects</span>
                     </div>
                 </a>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path fill-rule="evenodd"
+                        d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
+                </svg>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 my-2">
@@ -110,6 +138,13 @@
                         <span class="roboto18 content-title">Manage Students</span>
                     </div>
                 </a>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path fill-rule="evenodd"
+                        d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
+                </svg>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 my-2">
@@ -121,6 +156,13 @@
                         <span class="roboto18 content-title">Manage Users</span>
                     </div>
                 </a>
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path fill-rule="evenodd"
+                        d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z" />
+                </svg>
             </div>
         </div>
     </div>

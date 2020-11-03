@@ -49,7 +49,7 @@
                 <div class="tab-pane fade" id="tab2" role="tabpanel">
 
                     <div class="modal-header d-flex justify-content-center">
-                        <h5 class="modal-title roboto24" id="register">Welcome</h5>
+                        <h5 class="modal-title roboto24" id="register">Register</h5>
                     </div>
                     <div class="modal-body register-form">
                         <form method="POST" action="{{ route('register') }}">
