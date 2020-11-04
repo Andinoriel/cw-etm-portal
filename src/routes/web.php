@@ -100,7 +100,7 @@ Route::middleware(['auth', 'role:super-admin'])->prefix('admin')->group(function
 /*
  * Profile Page Routing
  */
-Route::middleware('auth')->prefix('profile')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('profile')->group(function () {
     Route::get('', [UserProfileController::class, 'index'])->name('profile');
 
     Route::post('update-{id}', [TeachersController::class, 'update'])

@@ -13,11 +13,18 @@
                     <div>
                         @switch(session('status'))
                         @case('profile-information-updated')
-                            <span>Email updated successfully!</span>
+                        <span>Email updated successfully!</span>
                         @break
 
                         @case('password-updated')
-                            <span>Password updated successfully!</span>
+                        <span>Password updated successfully!</span>
+                        @break
+
+                        @case('verification-link-sent')
+                        <span>
+                            A new verification link has been sent to the email address 
+                            you provided during registration.
+                        </span>
                         @break
 
                         @default

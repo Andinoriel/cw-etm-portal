@@ -5,17 +5,6 @@
 
 @section('content')
 <div class="container mb-5 col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
     <form action="{{ route('update-subject', $subject->id) }}" method="post">
         @csrf
         <div class="d-flex flex-row justify-content-between align-items-center">

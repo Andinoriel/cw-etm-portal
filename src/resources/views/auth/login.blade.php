@@ -26,13 +26,13 @@
                         </button>
                     </div>
 
-                    {{-- <div class="form-group text-center">
+                    <div class="form-group text-center">
                         @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" class="forget-password disabled">
                             {{ __('Forgot your password?') }}
                         </a>
                         @endif
-                    </div> --}}
+                    </div>
                 </form>
             </div>
         </div>

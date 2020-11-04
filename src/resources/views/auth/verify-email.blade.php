@@ -1,29 +1,26 @@
 @extends('layouts.default')
 
 @section('content')
-    <div>
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
+<div class="container my-5 col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
 
-    @if (session('status') == 'verification-link-sent')
-        <div>
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="text-justify">
+            <h4>
+                Thanks for signing up! Before getting started, could you verify your email address by clicking on the
+                link we
+                just emailed to you? If you didn't receive the email, we will gladly send you another.
+            </h4>
         </div>
-    @endif
+    </div>
 
     <form method="POST" action="{{ route('verification.send') }}">
         @csrf
 
-        <button type="submit">
-            {{ __('Resend Verification Email') }}
-        </button>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="w-50 btn btn-primary">
+                {{ __('Resend Verification Email') }}
+            </button>
+        </div>
     </form>
-
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-
-        <button type="submit">
-            {{ __('Logout') }}
-        </button>
-    </form>
+</div>
 @endsection
