@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Faculty;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FacultiesController extends Controller
 {
@@ -33,6 +33,10 @@ class FacultiesController extends Controller
     }
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('thumbnail'))
+            if (Storage::exists(Faculty::find($id)->first()->thumbnail))
+                Storage::delete(Faculty::find($id)->first()->thumbnail);
+
         Faculty::find($id)->update([
             'name' => $request->name,
             'thumbnail' => $request->hasFile('thumbnail') ? $request->file('thumbnail')->store('public/thumbnails') : ''

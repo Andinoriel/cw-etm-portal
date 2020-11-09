@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Faculty;
 use App\Models\Cathedra;
+use Illuminate\Support\Facades\Storage;
 
 class CathedrasController extends Controller
 {
@@ -26,6 +27,10 @@ class CathedrasController extends Controller
     }
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('thumbnail'))
+            if (Storage::exists(Cathedra::find($id)->first()->thumbnail))
+                Storage::delete(Cathedra::find($id)->first()->thumbnail);
+
         $cathedra = Cathedra::find($id);
         $cathedra->update([
             'name' => $request->name,
