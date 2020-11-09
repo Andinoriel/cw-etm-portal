@@ -18,7 +18,7 @@ class CathedrasController extends Controller
     {
         Cathedra::insert([
             'name' => $request->name,
-            'thumbnail' => $request->hasFile('thumbnail') ? $request->file('thumbnail')->store('thumbnails') : '',
+            'thumbnail' => $request->hasFile('thumbnail') ? $request->file('thumbnail')->store('public/thumbnails') : '',
             'faculty_id' => $request->faculty_id
         ]);
 
@@ -29,7 +29,7 @@ class CathedrasController extends Controller
         $cathedra = Cathedra::find($id);
         $cathedra->update([
             'name' => $request->name,
-            'thumbnail' => $request->hasFile('thumbnail') ? $request->file('thumbnail')->store('thumbnails') : '',
+            'thumbnail' => $request->hasFile('thumbnail') ? $request->file('thumbnail')->store('public/thumbnails') : '',
         ]);
         $cathedra->faculty_id = Faculty::find($request->faculty_id)->id;
         $cathedra->save();

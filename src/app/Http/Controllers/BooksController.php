@@ -62,10 +62,12 @@ class BooksController extends Controller
             if (empty($request->subject)) {
                 $subject_id = \App\Models\Subject::find($request->subject_id)->id;
             } else {
-                if (empty(\App\Models\Subject::where('name', $request->subject)->get())) {
+                if (empty(\App\Models\Subject::where('name', $request->subject)->first())) {
                     $subject_id = \App\Models\Subject::create(['name' => $request->subject])->id;
                 } else {
-                    $subject_id = \App\Models\Subject::where('name', $request->subject)->first()->id;
+                    $subject_id = \App\Models\Subject::where('name', $request->subject)->first()
+                        ? \App\Models\Subject::where('name', $request->subject)->first()->id
+                        : \App\Models\Subject::create(['name' => $request->subject])->id;
                 }
             }
 
@@ -77,7 +79,7 @@ class BooksController extends Controller
                 'teacher_id' => \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id,
                 'subject_id' => $subject_id,
                 'url_download' => $request->file('file')->store(
-                    'files/' . \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id
+                    'public/files/' . \App\Models\Teacher::where('user_id', Auth::user()->id)->first()->id
                 )
             ]);
 

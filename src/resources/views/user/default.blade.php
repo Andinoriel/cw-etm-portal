@@ -46,7 +46,7 @@
         <div class="d-flex flex-column flex-lg-row">
             <div class="col-12 col-lg-4">
                 <img class="stuff-image"
-                    src={{ Storage::exists($teacher->image) ? Storage::url($teacher->image) : 'static/placeholder-portrait.png' }}
+                    src={{ Storage::exists($teacher->image) ? Storage::url($teacher->image) : '/static/placeholder-portrait.png' }}
                     alt="person">
             </div>
             <div class="col-12 col-lg-8 mt-5 mt-lg-0">

@@ -35,7 +35,7 @@ class UserProfileController extends Controller
             if (Storage::exists($teacher->image))
                 Storage::delete($teacher->image);
 
-            $teacher->image = $request->file('photo')->store('avatars');
+            $teacher->image = $request->file('photo')->store('public/avatars');
             $teacher->save();
 
             return back()->with('success', 'Photo uploaded successfully!');
